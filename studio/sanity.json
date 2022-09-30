@@ -5,14 +5,15 @@
     "basepath": "/studio"
   },
   "api": {
-    "projectId": "s3hwde6f",
+    "projectId": "kzklufkv",
     "dataset": "production"
   },
   "plugins": [
     "@sanity/base",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/desk-tool"
+    "@sanity/desk-tool",
+    "asset-source-unsplash"
   ],
   "env": {
     "development": {

@@ -37,16 +37,16 @@ export default {
     {
       name: "body",
       title: "Body",
-      type: "blockContent",
+      type: "block",
       validation: Rule => Rule.required()
     },
-    {
-      name: "author",
-      title: "Auteur",
-      type: "reference",
-      to: { type: "author" },
-      validation: Rule => Rule.required()
-    },
+    // {
+    //   name: "author",
+    //   title: "Auteur",
+    //   type: "reference",
+    //   to: { type: "author" },
+    //   validation: Rule => Rule.required()
+    // },
     {
       name: "mainImage",
       title: "Main image",
@@ -66,13 +66,13 @@ export default {
         hotspot: true
       }
     },
-    {
-      name: "categories",
-      title: "Categorieën",
-      type: "array",
-      of: [{ type: "reference", to: { type: "category" } }],
-      validation: Rule => Rule.required()
-    },
+    // {
+    //   name: "categories",
+    //   title: "Categorieën",
+    //   type: "array",
+    //   of: [{ type: "reference", to: { type: "category" } }],
+    //   validation: Rule => Rule.required()
+    // },
     {
       name: "publishedAt",
       title: "Gepubliceerd op",
@@ -80,17 +80,17 @@ export default {
     }
   ],
 
-  preview: {
-    select: {
-      title: "title",
-      author: "author.name",
-      media: "mainImage"
-    },
-    prepare(selection) {
-      const { author } = selection;
-      return Object.assign({}, selection, {
-        subtitle: author && `door ${author}`
-      });
-    }
-  }
+  // preview: {
+  //   select: {
+  //     title: "title",
+  //     author: "author.name",
+  //     media: "mainImage"
+  //   },
+  //   prepare(selection) {
+  //     const { author } = selection;
+  //     return Object.assign({}, selection, {
+  //       subtitle: author && `door ${author}`
+  //     });
+  //   }
+  // }
 };

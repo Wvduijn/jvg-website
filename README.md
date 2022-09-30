@@ -23,6 +23,7 @@ yarn run dev
 
 # For the CMS
 
-
-
 Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+
+# Write functional components only
+Use functional components only [Function Components](https://www.robinwieruch.de/react-function-component/)

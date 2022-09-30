@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+body > div:first-child,
+div#__next,
+div#__next > div {
+  height: 100%;
+}
+
+// :root {
+//   //oranges
+//   --saffron: #ff870f;
+//   --deep-saffron: #ff9933;
+//   --deep-saffron-2: #ffa347;
+//   --deep-saffron-3: #ff9933;
+//   --deep-saffron-4: #ffa347;
+
+//   // blue violoet
+//   --blue-violet: #431f7f;
+//   --ksu-purple: #4f2494;
+//   --purple: #5728a4;
+//   --purple-2: #602cb5;
+//   --french-violet: #6930c5;
+
+//   // Kombu
+//   --kombu-green: #36453b;
+//   --kombu-green: #36453b;
+//   --feldgrau: #3f5045;
+//   --feldgrau-2: #485b4e;
+//   --feldgrau-3: #516758;
+//   --hookers-green: #5a7262;
+
+//   // Ebony
+//   --ebony: #515751;
+//   --ebony-2: #626a62;
+//   --nickel: #6c756c;
+//   --xanadu: #767f76;
+//   --xanadu-2: #808980;
+
+//   // Ivory
+//   --ivory: #f5f9e9;
+//   --beige: #f0f6df;
+//   --nyanza: #e8f2cf;
+//   --pale-spring-bud: #e1edbf;
+//   --pale-spring-bud-2: #dbe9af;
+// }
+
+// $blue-violet-gradient-top: linear-gradient(
+//   0deg,
+//   #ff870f,
+//   #ff9933,
+//   #ffa347,
+//   #ff9933,
+//   #ffa347
+// );
+// $blue-violet-gradient-top: linear-gradient(
+//   0deg,
+//   #431f7fff,
+//   #4f2494ff,
+//   #5728a4ff,
+//   #602cb5ff,
+//   #6930c5ff
+// );
+// $kombu-gradient-top: linear-gradient(
+//   0deg,
+//   #36453bff,
+//   #3f5045ff,
+//   #485b4eff,
+//   #516758ff,
+//   #5a7262ff
+// );
+
+// $ebony-gradient-top: linear-gradient(
+//   0deg,
+//   #515751,
+//   #626a62,
+//   #6c756c,
+//   #767f76,
+//   #808980
+// );
+
+// $ivory-gradient-top: linear-gradient(
+//   0deg,
+//   #f5f9e9,
+//   #f0f6df,
+//   #e8f2cf,
+//   #e1edbf,
+//   #dbe9af
+// );
+
+// body {
+//   font-family: 'Roboto Slab', serif;
+// }
+
+// h1, h2, h3, h4, h5, h6 {
+//   font-family: 'Roboto', sans-serif;
+// }
