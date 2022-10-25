@@ -1,0 +1,29 @@
+{
+  "menu_items": [
+    {
+      "title": "Home",
+      "link": "",
+      "active": false
+    },
+    {
+      "title": "Over ons",
+      "link": "",
+      "active": false
+    },
+    {
+      "title": "Nieuws",
+      "link": "",
+      "active": false
+    },
+    {
+      "title": "Activiteiten",
+      "link": "",
+      "active": false
+    },
+    {
+      "title": "Contact",
+      "link": "",
+      "active": false
+    }
+  ]
+}

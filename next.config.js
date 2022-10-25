@@ -20,4 +20,8 @@ module.exports = {
     };
     return config;
   },
+  compiler: {
+    // ssr and displayName are configured by default
+    styledComponents: true,
+  },
 }

@@ -5,12 +5,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    
     extend: {
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
-        'saffron': {
+        saffron: {
           100: '#ffa347',
           200: '#ff9933',
           300: '#ffa347',
@@ -24,21 +23,21 @@ module.exports = {
           400: '#4f2494',
           500: '#431f7f',
         },
-        'kombu': {
+        kombu: {
           100: '#5a7262',
           200: '#516758',
           300: '#485b4e',
           400: '#3f5045',
           500: '#36453b',
         },
-        'ebony': {
+        ebony: {
           100: '#808980',
           200: '#767f76',
           300: '#6c756c',
           400: '#626a62',
           500: '#515751',
         },
-        'ivory': {
+        ivory: {
           100: '#dbe9af',
           200: '#e1edbf',
           300: '#e8f2cf',
@@ -50,12 +49,19 @@ module.exports = {
         Roboto: ['Roboto', 'sans-serif'],
         RobotoSlab: ['Roboto Slab', 'serif'],
         Montserrat: ['Montserrat', 'sans-serif'],
-        OpenSans: ['Open Sans', 'sans-serif']
+        OpenSans: ['Open Sans', 'sans-serif'],
       },
       lineHeight: {
-        '0': '0'
-      }
+        0: '0',
+      },
+      gridTemplateColumns: {
+        // Simple 16 column grid
+        16: 'repeat(16, minmax(0, 1fr))',
+
+        // Complex site-specific column configuration
+        footer: '200px minmax(900px, 1fr) 100px',
+      },
     },
   },
   plugins: [],
-}
+};

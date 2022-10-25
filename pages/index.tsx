@@ -5,22 +5,21 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 // components
-import NavBar from 'components/ui/NavBar';
-import Header from 'components/sections/Header';
-import Footer from 'components/sections/Footer';
+
 import EventCard from 'components/ui/EventCard';
-import PageHeader from 'components/sections/PageHeader';
+import Blog from 'components/sections/Blog';
+import About from 'components/sections/About';
+import Header from 'components/sections/Header';
+
+// SEO
+import SEO from 'components/seo/SEO';
 
 // Framer Motion
 import { motion } from 'framer-motion';
 
-// Types
-import { Animal } from 'types/animal';
-
 // Sanity Client
 import client from '@lib/sanity';
 import { groq } from 'next-sanity';
-import Paragraph from 'components/ui/content/Paragraph';
 
 const Home: NextPage = (props: any) => {
   const { postdata, preview, animals } = props;
@@ -30,38 +29,18 @@ const Home: NextPage = (props: any) => {
 
   return (
     <>
-      <NavBar />
-      <Header />
-      <PageHeader imageUrl="/images/docks-background.jpg"/>
-      <div className="container mx-auto">
-        {/* Text Test */}
-        <Paragraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-          delectus quia, rerum nam nesciunt doloribus minima maiores autem, ab
-          blanditiis pariatur voluptas dolor explicabo quidem odit officia totam
-          suscipit in? Rem nemo tempora et, in numquam sunt, dolore eveniet
-          pariatur fugiat nobis deserunt tenetur eum hic facere nulla?
-          Asperiores similique porro dolores vitae atque laborum modi unde
-          architecto aut iusto! Sequi voluptatibus culpa accusantium nihil,
-          vitae neque sunt ut iste beatae molestiae voluptate quibusdam, nobis
-          architecto ratione. Quo, quas. Hic dicta dolore voluptatum assumenda
-          quas ducimus architecto cupiditate, vel doloremque. Iste quis
-          voluptatem, cum hic eveniet nemo quam expedita soluta delectus sequi
-          tempore quaerat obcaecati velit, voluptate illum magnam deserunt modi
-          sit vel corrupti laudantium? Nam quam magni quae rem? Omnis
-          perferendis, nesciunt mollitia excepturi voluptatum illo! Voluptatem
-          maiores rem tenetur repudiandae? Incidunt, deserunt! Vitae, ad quo,
-          quaerat alias ipsam quisquam, deleniti cumque et reiciendis aliquid
-          perspiciatis nesciunt illum aliquam.
-        </Paragraph>
-        {/* CARD TEST */}
+    <SEO pageTitle="Homepage" pageDescription="Welcome to my website" />
+    <Header />
+      <div className="container mx-auto px-8">
+        <About />
+        <Blog />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <EventCard />
           <EventCard />
           <EventCard />
           <EventCard />
         </div>
-       
+
         {/* Data from Sanity */}
         <div className="grid grid-cols-3 gap-4 p-5">
           {animals.map((animal: any, index: number) => {
@@ -82,7 +61,6 @@ const Home: NextPage = (props: any) => {
           })}
         </div>
       </div>
-      <Footer />
     </>
   );
 };

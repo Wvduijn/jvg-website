@@ -1,5 +1,8 @@
-import React, { ReactNode } from "react";
-import Head from "next/head";
+import React, { ReactNode } from 'react';
+import Head from 'next/head';
+
+import NavBar from 'components/ui/NavBar';
+import Footer from 'components/sections/Footer';
 
 interface Props {
   children?: ReactNode;
@@ -7,12 +10,11 @@ interface Props {
 
 const MainLayout = ({ children }: Props) => {
   return (
-    <>
-      <Head>
-        <title>Layouts Example</title>
-      </Head>
-      <main>{children}</main>
-    </>
+    <main className="flex min-h-screen flex-col">
+      <NavBar />
+      {children}
+      <Footer />
+    </main>
   );
 };
 

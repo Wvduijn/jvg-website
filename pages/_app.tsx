@@ -1,12 +1,13 @@
 import '../styles/globals.scss';
 
 import type { AppProps } from 'next/app';
+import MainLayout from 'components/layouts/main_layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className='flex min-h-screen flex-col'>
+    <MainLayout>
       <Component {...pageProps} />
-    </div>
+    </MainLayout>
   );
 }
 

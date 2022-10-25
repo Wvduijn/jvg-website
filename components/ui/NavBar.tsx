@@ -3,9 +3,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import NavBarLink from './NavBarLink';
 
+import menu from '../../data/menu.json';
+
 const NavBar = (props: any) => {
   // destructure props
   const { items } = props;
+
+  const { menu_items } = menu;
 
   // State
   const [navHidden, setNavHidden] = useState(true);
@@ -73,14 +77,24 @@ const NavBar = (props: any) => {
 
         {/* <!-- Mobile Menu open: "block", Menu closed: "hidden" --> */}
         <div
-          className={`absolute mt-4 inset-x-0 z-20 w-full px-6 py-4 bg-white dark:bg-gray-100 border-b border-t border-violet-blue-500 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center ${
+          className={`absolute mt-4 inset-x-0 z-20 w-full px-6 py-4 bg-white dark:bg-gray-100 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center ${
             !navHidden
               ? 'translate-x-0 opacity-100 transition-all duration-300 ease-in-out'
               : 'opacity-0 -translate-x-full'
           } `}
         >
           <div className="flex flex-col md:flex-row md:mx-6">
-            <NavBarLink goto={'/'} title="Home" active={false} />
+            {menu_items.map((item) => {
+              return (
+                <NavBarLink
+                  goto={item.link}
+                  title={item.title}
+                  active={item.active}
+                  key={item.title}
+                />
+              );
+            })}
+            {/* <NavBarLink goto={'/'} title="Home" active={false} />
             <NavBarLink goto={'/over-ons'} title="Over ons" active={false} />
             <NavBarLink goto={'/nieuws'} title="Nieuws" active={false} />
             <NavBarLink
@@ -88,7 +102,7 @@ const NavBar = (props: any) => {
               title="Activiteiten"
               active={false}
             />
-            <NavBarLink goto={'/contact'} title="Contact" active={false} />
+            <NavBarLink goto={'/contact'} title="Contact" active={false} /> */}
           </div>
         </div>
       </div>
