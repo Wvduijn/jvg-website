@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import NavBarLink from './NavBarLink';
 
 import menu from '../../../data/menu.json';
@@ -29,7 +29,10 @@ const NavBar = (props: any) => {
               width={250}
               height={63}
               priority={true}
-            />
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </div>
 
           {/* <!-- Mobile menu button --> */}

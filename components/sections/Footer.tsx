@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRouter } from 'next/router';
 
 const Footer = () => {
@@ -31,7 +31,10 @@ const Footer = () => {
                   width={150}
                   height={78}
                   priority={true}
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
               </div>
             </div>
           </div>

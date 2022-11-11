@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { getRandomColor } from '@services/random-color';
 import { useEffect, useState } from 'react'
 
@@ -19,16 +19,18 @@ const PageHeader = (props: any) => {
   return (
     <section className={`${color} dark:text-gray-100 h-200 relative`}>
       <Image
-        style={imageStyle}
         src={imageUrl}
         alt="JVG achtergrond image van een steiger"
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
         priority={true}
         placeholder="blur"
         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8/B8AAssB5CY77SMAAAAASUVORK5CYII="
-      ></Image>
+        fill
+        sizes="100vw"
+        style={{
+          ...imageStyle,
+          objectFit: "cover",
+          objectPosition: "center"
+        }}></Image>
       <div className="relative">
         <div className="container mx-auto flex flex-col items-center px-4 py-16 text-center md:py-32 md:px-10 lg:px-32 xl:max-w-3xl z-10">
           <h1 className="text-4xl font-bold leading-none sm:text-5xl">

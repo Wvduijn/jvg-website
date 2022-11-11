@@ -1,6 +1,6 @@
 // framework specific imports
 import type { NextPage } from 'next';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRouter } from 'next/router';
 
 // components
@@ -26,40 +26,41 @@ const Home: NextPage = (props: any) => {
 
   console.log('ANIMALS FETCHED FROM SANITY', JSON.stringify(animals));
 
-  return (
-    <>
-      <SEO pageTitle="Homepage" pageDescription="Welcome to my website" />
-      <Header />
-      <div className="container mx-auto px-8">
-        <About />
-        <Blog />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <EventCard />
-          <EventCard />
-        </div>
-
-        {/* Data from Sanity */}
-        <div className="grid grid-cols-3 gap-4 p-5">
-          {animals.map((animal: any, index: number) => {
-            return (
-              <div key={index}>
-                <h2 className="text-large">{animal.name}</h2>
-                <Image
-                  src={animal.imageUrl}
-                  alt={animal.name}
-                  width="100"
-                  height="100"
-                  layout="responsive"
-                  placeholder="blur"
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8/B8AAssB5CY77SMAAAAASUVORK5CYII="
-                ></Image>
-              </div>
-            );
-          })}
-        </div>
+  return <>
+    <SEO pageTitle="Homepage" pageDescription="Welcome to my website" />
+    <Header />
+    <div className="container mx-auto px-8">
+      <About />
+      <Blog />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <EventCard />
+        <EventCard />
       </div>
-    </>
-  );
+
+      {/* Data from Sanity */}
+      <div className="grid grid-cols-3 gap-4 p-5">
+        {animals.map((animal: any, index: number) => {
+          return (
+            <div key={index}>
+              <h2 className="text-large">{animal.name}</h2>
+              <Image
+                src={animal.imageUrl}
+                alt={animal.name}
+                width="100"
+                height="100"
+                placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8/B8AAssB5CY77SMAAAAASUVORK5CYII="
+                sizes="100vw"
+                style={{
+                  width: "100%",
+                  height: "auto"
+                }}></Image>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </>;
 };
 
 export async function getStaticProps() {

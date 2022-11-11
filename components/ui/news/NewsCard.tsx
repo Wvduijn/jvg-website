@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Author from './Author';
 import Tag from './Tag';
 
@@ -20,13 +20,15 @@ const NewsCard = ({ imageUrl, description, title, tags, slug }: props) => {
           <Image
             src="https://cdn.tailgrids.com/1.0/assets/images/blogs/blog-01/image-01.jpg"
             alt="JVG achtergrond image van een steiger"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
             priority={true}
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8/B8AAssB5CY77SMAAAAASUVORK5CYII="
-          ></Image>
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover",
+              objectPosition: "center"
+            }}></Image>
         </div>
         <div className="p-4">
           <div className="flex flex-col">

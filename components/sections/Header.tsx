@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import src from '/images/docks-background.jpg'
 
 const Header = () => {
@@ -8,14 +8,16 @@ const Header = () => {
   return (
     <section className="bg-blue-violet-500 text-gray-100 h-500 relative">
       <Image
-        style={imageStyle}
         src="/images/docks-background.jpg"
         alt="JVG achtergrond image van een steiger"
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
         priority={true}
-      ></Image>
+        fill
+        sizes="100vw"
+        style={{
+          ...imageStyle,
+          objectFit: "cover",
+          objectPosition: "center"
+        }}></Image>
       <div className="relative">
         <div className="container mx-auto flex flex-col items-center px-4 py-16 text-center md:py-32 md:px-10 lg:px-32 xl:max-w-5xl z-10">
           <h1 className="font-montserrat text-4xl font-bold leading-none sm:text-5xl">
