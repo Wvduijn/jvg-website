@@ -31,7 +31,7 @@ const Heading = ({ type, color, weight, extraClasses, children }: props) => {
       case 'h1':
         return (
           <h1
-            className={`font-RobotoSlab text-5xl sm:text-6xl leading-relaxed mb-5 ${setColor(color)} ${weight} ${extraClasses}`}
+            className={`font-robotoslab text-5xl sm:text-6xl leading-relaxed mb-5 ${setColor(color)} ${weight} ${extraClasses}`}
           >
             {children}
           </h1>
@@ -39,7 +39,7 @@ const Heading = ({ type, color, weight, extraClasses, children }: props) => {
       case 'h2':
         return (
           <h2
-            className={`font-RobotoSlab text-4xl sm:text-5xl leading-relaxed mb-5 ${setColor(color)} ${weight} ${extraClasses}`}
+            className={`font-robotoslab text-4xl sm:text-5xl leading-relaxed mb-5 ${setColor(color)} ${weight} ${extraClasses}`}
           >
             {children}
           </h2>
@@ -47,7 +47,7 @@ const Heading = ({ type, color, weight, extraClasses, children }: props) => {
       case 'h3':
         return (
           <h3
-            className={`font-RobotoSlab text-3xl sm:text-4xl leading-relaxed mb-5 ${setColor(color)} ${weight} ${extraClasses}`}
+            className={`font-robotoslab text-3xl sm:text-4xl leading-relaxed mb-5 ${setColor(color)} ${weight} ${extraClasses}`}
           >
             {children}
           </h3>
@@ -55,7 +55,7 @@ const Heading = ({ type, color, weight, extraClasses, children }: props) => {
       case 'h4':
         return (
           <h4
-            className={`font-RobotoSlab text-2xl sm:text-3xl leading-relaxed mb-5 ${setColor(color)} ${weight} ${extraClasses}`}
+            className={`font-robotoslab text-2xl sm:text-3xl leading-relaxed mb-5 ${setColor(color)} ${weight} ${extraClasses}`}
           >
             {children}
           </h4>
@@ -63,7 +63,7 @@ const Heading = ({ type, color, weight, extraClasses, children }: props) => {
       case 'h5':
         return (
           <h5
-            className={`font-RobotoSlab text-xl sm:text-2xl leading-relaxed mb-5 ${setColor(color)} ${weight} ${extraClasses}`}
+            className={`font-robotoslab text-xl sm:text-2xl leading-relaxed mb-5 ${setColor(color)} ${weight} ${extraClasses}`}
           >
             {children}
           </h5>
@@ -71,7 +71,7 @@ const Heading = ({ type, color, weight, extraClasses, children }: props) => {
       case 'h6':
         return (
           <h6
-            className={`font-RobotoSlab text-lg sm:text-xl leading-relaxed mb-5 ${setColor(color)} ${weight} ${extraClasses}`}
+            className={`font-robotoslab text-lg sm:text-xl leading-relaxed mb-5 ${setColor(color)} ${weight} ${extraClasses}`}
           >
             {children}
           </h6>

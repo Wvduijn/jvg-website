@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -46,11 +48,17 @@ module.exports = {
         },
       },
       fontFamily: {
-        Roboto: ['Roboto', 'sans-serif'],
-        RobotoSlab: ['Roboto Slab', 'serif'],
-        Montserrat: ['Montserrat', 'sans-serif'],
-        OpenSans: ['Open Sans', 'sans-serif'],
+        roboto: ['var(--font-roboto)', 'sans-serif'],
+        robotoslab: ['var(--font-robotoslab)', 'sans-serif'],
+        montserrat: ['var(--font-montserrat)', 'sans-serif'],
+        opensans: ['var(--font-opensans)', 'sans-serif'],
       },
+      // fontFamily: {
+      //   Roboto: ['Roboto', 'sans-serif'],
+      //   RobotoSlab: ['Roboto Slab', 'serif'],
+      //   Montserrat: ['Montserrat', 'sans-serif'],
+      //   OpenSans: ['Open Sans', 'sans-serif'],
+      // },
       lineHeight: {
         0: '0',
       },

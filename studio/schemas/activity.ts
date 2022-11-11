@@ -1,7 +1,10 @@
+import { BsCalendarEvent } from "react-icons/bs";
+
 export default {
   name: 'activity',
   type: 'document',
   title: 'Activiteit',
+  icon: BsCalendarEvent,
   fields: [
     {
       name: 'title',
@@ -9,12 +12,13 @@ export default {
       title: 'Titel',
     },
     {
+      title: 'Omschrijving', 
       name: 'description',
-      type: '',
-      title: 'Omschrijving',
+      type: 'array', 
+      of: [{type: 'block'}]
     },
     {
-      name: 'activity-date',
+      name: 'activityDate',
       type: 'date',
       title: 'Activiteit Datum',
       options: {
@@ -29,7 +33,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{ type: 'category' }],
+          to: [{ type: 'activityCategory' }],
         },
       ],
     },

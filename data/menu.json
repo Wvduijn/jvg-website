@@ -2,27 +2,27 @@
   "menu_items": [
     {
       "title": "Home",
-      "link": "",
+      "link": "/",
       "active": false
     },
     {
       "title": "Over ons",
-      "link": "",
+      "link": "over-ons",
       "active": false
     },
     {
       "title": "Nieuws",
-      "link": "",
+      "link": "nieuws",
       "active": false
     },
     {
       "title": "Activiteiten",
-      "link": "",
+      "link": "activiteiten",
       "active": false
     },
     {
       "title": "Contact",
-      "link": "",
+      "link": "contact",
       "active": false
     }
   ]

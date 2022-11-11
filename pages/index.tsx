@@ -1,12 +1,11 @@
 // framework specific imports
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 // components
 
-import EventCard from 'components/ui/EventCard';
+import EventCard from 'components/ui/events/EventCard';
 import Blog from 'components/sections/Blog';
 import About from 'components/sections/About';
 import Header from 'components/sections/Header';
@@ -22,21 +21,19 @@ import client from '@lib/sanity';
 import { groq } from 'next-sanity';
 
 const Home: NextPage = (props: any) => {
-  const { postdata, preview, animals } = props;
+  const { animals } = props;
   const router = useRouter();
 
   console.log('ANIMALS FETCHED FROM SANITY', JSON.stringify(animals));
 
   return (
     <>
-    <SEO pageTitle="Homepage" pageDescription="Welcome to my website" />
-    <Header />
+      <SEO pageTitle="Homepage" pageDescription="Welcome to my website" />
+      <Header />
       <div className="container mx-auto px-8">
         <About />
         <Blog />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <EventCard />
-          <EventCard />
           <EventCard />
           <EventCard />
         </div>

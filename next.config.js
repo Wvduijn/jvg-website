@@ -7,10 +7,15 @@ const STUDIO_REWRITE = {
 };
 
 module.exports = {
+  experimental: {
+    fontLoaders: [
+      { loader: '@next/font/google', options: { subsets: ['latin'] } },
+    ],
+  },
   reactStrictMode: true,
   rewrites: () => [STUDIO_REWRITE],
   images: {
-    domains: ['cdn.sanity.io']
+    domains: ['cdn.sanity.io', 'cdn.tailgrids.com']
   },
   webpack(config) {
     config.resolve.alias = {
@@ -18,6 +23,11 @@ module.exports = {
       '@services': path.resolve(__dirname, 'services'),
       '@lib': path.resolve(__dirname, 'lib'),
     };
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"]
+    });
+
     return config;
   },
   compiler: {
