@@ -1,5 +1,4 @@
 import Image from "next/image";
-import src from '/images/docks-background.jpg'
 
 const Header = () => {
   const imageStyle = {

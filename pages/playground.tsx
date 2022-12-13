@@ -4,6 +4,7 @@ import Heading from 'components/ui/content/Heading';
 import Section from 'components/sections/Section';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import GradientText from 'components/ui/content/GradientText';
 
 const Playground: NextPage = (props: any) => {
   return (
@@ -22,6 +23,10 @@ const Playground: NextPage = (props: any) => {
         <Heading type="h2"  weight="font-semibold" color="orange">
           Hallo 2
         </Heading>
+        <GradientText type='h1' colorFrom='from-saffron-500' colorTo='to-blue-500' direction='br' >Ik ben een vette Gradient Text</GradientText>
+        <GradientText type='h1' colorFrom='from-saffron-100' colorTo='to-saffron-500' direction='tl' >Ik ben een vette Gradient Text</GradientText>
+        <GradientText type='h2' colorFrom='from-blue-violet-100' colorTo='to-blue-violet-500' direction='tr' >Ik ben een vette Gradient Text</GradientText>
+        <GradientText type='h3' colorFrom='from-blue-violet-500' colorTo='to-blue-violet-500' colorVia='via-saffron-300' direction='r' >Ik ben een vette Gradient Text</GradientText>
         <Button color="purple" extraClasses='m-5' size='xl'>Hello Button</Button>
        <Section bgColor='bg-saffron-500' dividerColor='fill-white' dividerPosition='top' dividerType="wave">
         <p>yolo dit is een section</p>

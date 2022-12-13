@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 const Footer = () => {
@@ -6,7 +6,7 @@ const Footer = () => {
   console.log('ROUTER OBJECT', router);
 
   return (
-    <div className="bg-ebony-200 text-gray-100 mt-auto">
+    <footer className="bg-ebony-200 text-gray-100 mt-auto">
       {/* When page = contact enable the map in footer */}
       {router.pathname === '/contact' && (
         <div className="h-72">
@@ -22,32 +22,38 @@ const Footer = () => {
       <div className="pt-16 pb-16 mx-6">
         <div className="flex flex-wrap justify-between">
           {/* company column */}
-          <div className="text-center md:text-left mb-16 lg:mb-0 sm:w-full lg:w-1/5">
-            <div className="flex items-center justify-center lg:justify-start relative">
-              <div className="w-full">
-                <Image
-                  src="/images/JVG_beeldmerk.svg"
-                  alt="JVG De jeugd van gisteren"
-                  width={150}
-                  height={78}
-                  priority={true}
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto"
-                  }} />
-              </div>
+          <div className="text-center md:text-left mb-16 lg:mb-0 w-full lg:w-1/5">
+            <div className="flex items-center lg:justify-center relative">
+              <Image
+                src="/images/JVG_beeldmerk.svg"
+                alt="JVG De jeugd van gisteren"
+                width={150}
+                height={78}
+                priority={true}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                }}
+              />
             </div>
           </div>
-          <div className="sm:w-full lg:w-1/5 grow">
-            <p className="mt-4 max-w-xs font-medium text-sm mx-auto lg:mx-0 lg:mr-4 leading-loose text-center lg:text-left ">
-              <span className="block font-bold">Stichting JVG</span>
-              <span className="block">De jeugd van gisteren</span>
-              <span className="block">Hoofddorp</span>
-              <span className="block">Nederland</span>
+          <div className="sm:w-full lg:w-1/5 grow text-left mb-6">
+            <h4 className="font-bold uppercase">Adres</h4>
+            <p className="font-roboto mt-4 font-medium text-sm leading-loose">
+            <span className="block">Stichting de JVG | De jeugd van gisteren</span>
+              <span className="block">Beemsterstraat 4</span>
+              <span className="block">2131 ZB Hoofddorp</span>
             </p>
           </div>
-          <div className="sm:w-full lg:w-1/5 flex justify-center">
-            <h4 className="font-bold uppercase mx-auto">Contact</h4>
+          <div className="sm:w-full lg:w-1/5 text-left">
+            <h4 className="font-bold uppercase">Contact</h4>
+            <p className="font-roboto mt-4 font-medium text-sm lg:mx-0 leading-loose">
+              Voor alle vragen over de mogelijkheden bij JvG, de zaalhuur, activiteiten, etc. kunt u terecht bij de voorzitter.
+            </p>
+            <p className="font-roboto mt-4 font-medium text-sm lg:mx-0 leading-loose">
+              <span className="block"><span className="font-bold">Telefoonnummer:</span> 0000000 </span>
+              <span className="block"><span className="font-bold">Email:</span> info@jvg.nl </span>
+            </p>
           </div>
         </div>
 
@@ -59,7 +65,7 @@ const Footer = () => {
           <div></div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

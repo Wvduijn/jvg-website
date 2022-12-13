@@ -1,4 +1,5 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
+const containerQuery = require('@tailwindcss/container-queries');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -6,30 +7,33 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
+  plugins: [
+    containerQuery
+  ],
   theme: {
     extend: {
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
         saffron: {
-          100: '#ffa347',
-          200: '#ff9933',
+          100: '#FFCC99',
+          200: '#FFB870',
           300: '#ffa347',
           400: '#ff9933',
           500: '#ff870f',
         },
         'blue-violet': {
-          100: '#6930c5',
-          200: '#602cb5',
-          300: '#5728a4',
-          400: '#4f2494',
+          100: '#966bdb',
+          200: '#7F4AD3',
+          300: '#6930c5',
+          400: '#5728A4',
           500: '#431f7f',
         },
         kombu: {
-          100: '#5a7262',
-          200: '#516758',
-          300: '#485b4e',
-          400: '#3f5045',
+          100: '#819C8B',
+          200: '#6C8976',
+          300: '#5A7262',
+          400: '#485b4e',
           500: '#36453b',
         },
         ebony: {

@@ -1,44 +1,62 @@
 import Link from 'next/link';
 
-import Image from "next/image";
+import { transformDate } from '@services/date';
+
+import Image from 'next/image';
 import Author from './Author';
 import Tag from './Tag';
 
 interface props {
-  imageUrl?: string;
+  imageUrl: string;
   description: string;
   title: string;
   tags: [string];
-  slug: [string];
+  slug: string;
+  authorName: string;
+  authorImage: any;
+  publishedAt: Date;
 }
 
-const NewsCard = ({ imageUrl, description, title, tags, slug }: props) => {
+const NewsCard = ({
+  imageUrl,
+  description,
+  title,
+  tags,
+  slug,
+  authorName,
+  authorImage,
+  publishedAt,
+}: props) => {
   return (
     <div className="w-full  bg-ivory-500 bg-gradient-to-t from-white to-ivory-500 drop-shadow-lg hover:drop-shadow-2xl transition-all rounded-xl hover:-translate-y-2 mb-6 overflow-hidden">
       <div className="flex flex-col md:flex-row">
         <div className="relative h-40 md:w-1/3 md:mb-0 md:h-auto ">
           <Image
-            src="https://cdn.tailgrids.com/1.0/assets/images/blogs/blog-01/image-01.jpg"
+            src={imageUrl}
             alt="JVG achtergrond image van een steiger"
             priority={true}
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8/B8AAssB5CY77SMAAAAASUVORK5CYII="
             fill
-            sizes="100vw"
+            sizes="(max-width: 768px) 200px,
+              (max-width: 1200px) 200px,
+              200px"
             style={{
-              objectFit: "cover",
-              objectPosition: "center"
-            }}></Image>
+              objectFit: 'cover',
+              objectPosition: 'center',
+            }}
+          ></Image>
         </div>
-        <div className="p-4">
+        <div className="p-4 md:w-2/3">
           <div className="flex flex-col">
             {/* TAG */}
             <div className="tags">
-              <Tag title="Algemeen" />
+              {tags.map((tag) => {
+                return <Tag key={tag} title={tag} />;
+              })}
             </div>
-            <h3>
-              <a
-                href="#"
+            <Link href={`nieuws/${slug}`}>
+              <h3
                 className="
                         font-montserrat
                         font-semibold
@@ -52,16 +70,14 @@ const NewsCard = ({ imageUrl, description, title, tags, slug }: props) => {
                         hover:text-saffron-300
                         "
               >
-                Meet AutoManage, the best AI management tools
-              </a>
-            </h3>
+                {title}
+              </h3>
+            </Link>
             <p className="font-roboto leading-relaxed text-base text-body-color mb-5">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry.
+              {description}
             </p>
             {/* Author */}
-            <Author name={'Wouter Gerritsen'} date={'21 SEPTEMBER 2022'} />
+            <Author name={authorName} date={transformDate(publishedAt)} imageUrl={authorImage} />
           </div>
         </div>
       </div>

@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <main
-        className={`${roboto.variable} ${robotoslab.variable} ${montserrat.variable} ${opensans.variable}`}
+        className={`${roboto.variable} ${robotoslab.variable} ${montserrat.variable} ${opensans.variable} flex flex-col grow`}
       >
         <Component {...pageProps} />
       </main>

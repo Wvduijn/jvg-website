@@ -7,22 +7,22 @@
     },
     {
       "title": "Over ons",
-      "link": "over-ons",
+      "link": "/over-ons",
       "active": false
     },
     {
       "title": "Nieuws",
-      "link": "nieuws",
+      "link": "/nieuws",
       "active": false
     },
     {
       "title": "Activiteiten",
-      "link": "activiteiten",
+      "link": "/activiteiten",
       "active": false
     },
     {
       "title": "Contact",
-      "link": "contact",
+      "link": "/contact",
       "active": false
     }
   ]

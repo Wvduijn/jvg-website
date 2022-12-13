@@ -10,7 +10,6 @@ interface props {
 const Heading = ({ type, color, weight, extraClasses, children }: props) => {
   // set some default names for colors
   const setColor = (color: string) => {
-    console.log('SET COLOR', color)
     switch (color) {
       case 'purple':
         return 'text-blue-violet-500';
@@ -22,6 +21,8 @@ const Heading = ({ type, color, weight, extraClasses, children }: props) => {
         return 'text-ivory-500';
       case 'ebony':
         return 'text-ebony-500';
+      case 'white':
+        return 'text-white';
       default:
         return color;
     }
