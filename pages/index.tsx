@@ -1,14 +1,13 @@
 // framework specific imports
 import type { NextPage } from 'next';
-import Image from "next/image";
 import { useRouter } from 'next/router';
 
 // components
-
-import EventCard from 'components/ui/events/EventCard';
-import Blog from 'components/sections/Blog';
 import About from 'components/sections/About';
 import Header from 'components/sections/Header';
+import Section from 'components/sections/Section';
+import Heading from 'components/ui/content/Heading';
+import NewsCard from 'components/ui/news/NewsCard';
 
 // SEO
 import SEO from 'components/seo/SEO';
@@ -18,59 +17,79 @@ import { motion } from 'framer-motion';
 
 // Sanity Client
 import client from '@lib/sanity';
-import { groq } from 'next-sanity';
+import Container from 'components/sections/Container';
+import buildUrl from '@services/sanity-urlbuilder';
 
-const Home: NextPage = (props: any) => {
-  const { animals } = props;
+// Queries
+import { indexQuery } from '@lib/newsQueries';
+
+// Types
+import { newsProps } from '@lib/types/newsProps';
+
+const Home: NextPage = ({ news }: any) => {
   const router = useRouter();
 
-  console.log('ANIMALS FETCHED FROM SANITY', JSON.stringify(animals));
-
-  return <>
-    <SEO pageTitle="Homepage" pageDescription="Welcome to my website" />
-    <Header />
-    <div className="container mx-auto px-8">
-      <About />
-      <Blog />
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <EventCard />
-        <EventCard />
-      </div>
-
-      {/* Data from Sanity */}
-      <div className="grid grid-cols-3 gap-4 p-5">
-        {animals.map((animal: any, index: number) => {
-          return (
-            <div key={index}>
-              <h2 className="text-large">{animal.name}</h2>
-              <Image
-                src={animal.imageUrl}
-                alt={animal.name}
-                width="100"
-                height="100"
-                placeholder="blur"
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8/B8AAssB5CY77SMAAAAASUVORK5CYII="
-                sizes="100vw"
-                style={{
-                  width: "100%",
-                  height: "auto"
-                }}></Image>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  </>;
+  return (
+    <>
+      <SEO pageTitle="Homepage" pageDescription="Welcome to my website" />
+      <Header />
+      <Section bgColor="bg-white">
+        <Container>
+          <About />
+        </Container>
+      </Section>
+      <Section bgColor="bg-gray-50" extraClasses="flex grow">
+        <Container>
+          <Heading
+            type="h6"
+            weight="font-normal"
+            color="text-gray-500"
+            extraClasses="mb-0"
+          >
+            Laatste nieuws
+          </Heading>
+          <div className="grid grid-cols-2 gap-8 mt-6">
+            {/* map news items to news cards */}
+            {news && news.map(
+              ({
+                title,
+                excerpt,
+                mainImage,
+                publishedAt,
+                slug,
+                authorName,
+                authorImage,
+                categories,
+                _id,
+              }: newsProps) => {
+                return (
+                  <NewsCard
+                    key={_id}
+                    title={title}
+                    description={excerpt}
+                    imageUrl={buildUrl(mainImage).url()}
+                    slug={slug.current}
+                    tags={categories}
+                    authorName={authorName}
+                    authorImage={buildUrl(authorImage).url()}
+                    publishedAt={publishedAt}
+                  />
+                );
+              }
+            )}
+          </div>
+        </Container>
+      </Section>
+    </>
+  );
 };
 
 export async function getStaticProps() {
-  const animals = await client.fetch(
-    `*[_type == "animal"]{name, "imageUrl": image.asset->url}`
-  );
-
+  // fetch news items to display on home screen
+  const news = await client.fetch(indexQuery);
   return {
     props: {
-      animals,
+      news,
     },
   };
 }

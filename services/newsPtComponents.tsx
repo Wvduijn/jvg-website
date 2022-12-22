@@ -38,11 +38,19 @@ export const newsPortableTextComponents = {
     ),
     paragraph: ({ children }: any) => <Paragraph>{children}</Paragraph>,
   },
+  list: {
+    // Ex. 1: customizing common list types
+    bullet: ({children} : any) => <ul className="ml-4 max-w-md list-disc list-outside text-gray-500 dark:text-gray-400">{children}</ul>,
+  },
+  listItem: {
+    // Ex. 1: customizing common list types
+    bullet: ({children}: any) => <li style={{listStyleType: 'disc'}}>{children}</li>,
+  },
   types: {
     image: ({ value }: any) => (
       <NewsPostImage imageUrl={buildUrl(value).url()} alt={value.alt || ''} />
     ),
-    span: ({ children }: any) => <Paragraph>{children}</Paragraph>,
+    span: ({ children }: any) => <Paragraph color='text-gray-500'>{children}</Paragraph>,
   },
   marks: {
     link: ({ children, value }: any) => {

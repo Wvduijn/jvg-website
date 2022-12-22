@@ -15,7 +15,7 @@ module.exports = {
   reactStrictMode: true,
   rewrites: () => [STUDIO_REWRITE],
   images: {
-    domains: ['cdn.sanity.io', 'cdn.tailgrids.com']
+    domains: ['cdn.sanity.io', 'cdn.tailgrids.com', 'dummyimage.com']
   },
   webpack(config) {
     config.resolve.alias = {

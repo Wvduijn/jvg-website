@@ -1,3 +1,4 @@
+// can add weekday: long if needed
 const options = {
   weekday: 'long',
   year: 'numeric',

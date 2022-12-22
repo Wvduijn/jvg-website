@@ -29,8 +29,8 @@ const NewsCard = ({
 }: props) => {
   return (
     <div className="w-full  bg-ivory-500 bg-gradient-to-t from-white to-ivory-500 drop-shadow-lg hover:drop-shadow-2xl transition-all rounded-xl hover:-translate-y-2 mb-6 overflow-hidden">
-      <div className="flex flex-col md:flex-row">
-        <div className="relative h-40 md:w-1/3 md:mb-0 md:h-auto ">
+      <div className="flex flex-col">
+        <div className="relative h-40">
           <Image
             src={imageUrl}
             alt="JVG achtergrond image van een steiger"
@@ -47,12 +47,12 @@ const NewsCard = ({
             }}
           ></Image>
         </div>
-        <div className="p-4 md:w-2/3">
+        <div className="p-4">
           <div className="flex flex-col">
             {/* TAG */}
             <div className="tags">
               {tags.map((tag) => {
-                return <Tag key={tag} title={tag} />;
+                return <Tag color="bg-blue-violet-500" key={tag} title={tag} />;
               })}
             </div>
             <Link href={`nieuws/${slug}`}>
@@ -73,7 +73,7 @@ const NewsCard = ({
                 {title}
               </h3>
             </Link>
-            <p className="font-roboto leading-relaxed text-base text-body-color mb-5">
+            <p className="font-roboto leading-relaxed text-base text-gray-500 mb-5">
               {description}
             </p>
             {/* Author */}

@@ -24,8 +24,6 @@ import { groq } from 'next-sanity';
 const News: NextPage = (props: any) => {
   // get news items from props
   const { news } = props;
-  console.log('NEWS FETCHED FROM SANITY', JSON.stringify(news));
-
   return (
     <>
       <Head>
@@ -35,7 +33,7 @@ const News: NextPage = (props: any) => {
           content="De Jeugd van Gisteren | Laatste Nieuws"
         />
       </Head>
-      <PageHeader imageUrl={getRandomImage()} pageName="Nieuws" />
+      <PageHeader color="bg-blue-violet-300" pageName="Nieuws" />
       
         <Section bgColor="bg-white">
           <Container>
@@ -70,7 +68,7 @@ const News: NextPage = (props: any) => {
 
             {/* NEWS ITEMS */}
             <hr className="my-8 h-px bg-gray-300 border-0"></hr>
-            <div className="flex flex-wrap -mx-4">
+            <div className="grid grid-cols-2 gap-8 mt-6">
             {/* map news items to news cards */}
             {news.map(({ title, excerpt, mainImage, publishedAt, slug, authorName, authorImage, categories, _id }: newsProps) => {
               return (

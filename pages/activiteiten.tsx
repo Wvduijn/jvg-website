@@ -8,22 +8,21 @@ import Section from 'components/sections/Section';
 import PageHeader from 'components/sections/PageHeader';
 import Container from 'components/sections/Container';
 import Paragraph from 'components/ui/content/Paragraph';
-import NewsCard from 'components/ui/news/NewsCard';
+import EventCard from 'components/ui/events/EventCard';
 
 // Types
 import { activityProps } from '@lib/types/activityProps';
 
 // Helpers
-import { getRandomImage } from '@services/random-image';
 import buildUrl from '@services/sanity-urlbuilder';
 import { indexQuery } from '@lib/activityQueries';
+import { transformDate } from '@services/date';
 
 // Sanity Client
 import client from '@lib/sanity';
-import { groq } from 'next-sanity';
 
 const News: NextPage = (props: any) => {
-  // get news items from props
+  // get activities
   const { activities } = props;
 
   return (
@@ -35,7 +34,7 @@ const News: NextPage = (props: any) => {
           content="De Jeugd van Gisteren | Activiteiten"
         />
       </Head>
-      <PageHeader imageUrl={getRandomImage()} pageName="Activiteiten" />
+      <PageHeader color="bg-saffron-300" pageName="Activiteiten" />
 
       <Section bgColor="bg-white">
         <Container>
@@ -57,11 +56,12 @@ const News: NextPage = (props: any) => {
             vastgelegd.
           </Heading>
           <Paragraph>
-            De JVG organiseert activiteiten op allerlei gebieden.
-            Dit kunnen activiteiten zijn op hobby gebied, maar ook om de sociale contacten te onderhouden. 
-            Sommige zijn er wekelijks, andere maandelijks. Gedurende het jaar worden er
-            nog een aantal speciale activiteiten georganiseerd. Voorbeelden hiervan zijn
-            De kerst instuif of de vrijheidsmaaltijd. 
+            De JVG organiseert activiteiten op allerlei gebieden. Dit kunnen
+            activiteiten zijn op hobby gebied, maar ook om de sociale contacten
+            te onderhouden. Sommige zijn er wekelijks, andere maandelijks.
+            Gedurende het jaar worden er nog een aantal speciale activiteiten
+            georganiseerd. Voorbeelden hiervan zijn De kerst instuif of de
+            vrijheidsmaaltijd.
           </Paragraph>
           <Paragraph>
             Een overzicht van onze activiteiten vindt u hieronder:
@@ -79,9 +79,21 @@ const News: NextPage = (props: any) => {
                 publishedAt,
                 slug,
                 categories,
+                activityDate,
                 _id,
               }: activityProps) => {
-                return <div>{title}</div>;
+                return (
+                  <EventCard
+                    key={_id}
+                    title={title}
+                    description={excerpt}
+                    imageUrl={buildUrl(mainImage).url()}
+                    imageAlt={mainImage.alt}
+                    slug={slug.current}
+                    tags={categories}
+                    date={transformDate(activityDate)}
+                  />
+                );
               }
             )}
           </div>
@@ -90,17 +102,6 @@ const News: NextPage = (props: any) => {
     </>
   );
 };
-
-const query = groq`*[_type == "newsPost"] | order(publishedAt desc) 
-{ 
-  _id,
-  title, 
-  excerpt, 
-  mainImage, 
-  publishedAt, 
-  slug,
-  "categories": categories[]->title
-}`;
 
 export async function getStaticProps() {
   const activities = await client.fetch(indexQuery);

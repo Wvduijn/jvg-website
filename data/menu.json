@@ -6,8 +6,8 @@
       "active": false
     },
     {
-      "title": "Over ons",
-      "link": "/over-ons",
+      "title": "Organisatie",
+      "link": "/organisatie",
       "active": false
     },
     {
@@ -18,6 +18,11 @@
     {
       "title": "Activiteiten",
       "link": "/activiteiten",
+      "active": false
+    },
+    {
+      "title": "Verhuur",
+      "link": "/verhuur",
       "active": false
     },
     {

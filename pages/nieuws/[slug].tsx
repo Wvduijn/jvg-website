@@ -14,7 +14,6 @@ import NewsCard from 'components/ui/news/NewsCard';
 import { newsProps } from '@lib/types/newsProps';
 
 // Helpers
-import { getRandomImage } from '@services/random-image';
 import buildUrl from '@services/sanity-urlbuilder';
 import { newsPortableTextComponents } from '@services/newsPtComponents';
 import { postQuery, postSlugsQuery } from '@lib/newsQueries';
@@ -30,7 +29,7 @@ const NewsDetailPage = ({ newsitem, moreNews }: any) => {
   const router = useRouter();
   return (
     <>
-      <PageHeader imageUrl={getRandomImage()} pageName={newsitem.title} />
+      <PageHeader pageName={newsitem.title} />
       <Section bgColor="bg-white">
         <Container>
           <div className="grid grid-rows-1 grid-cols-3 gap-8">

@@ -11,6 +11,7 @@ interface props {
   hasBg?: boolean;
   bgUrl?: string;
   children: ReactNode;
+  extraClasses?: string
 }
 const Section = ({
   dividerPosition = 'top',
@@ -20,9 +21,10 @@ const Section = ({
   hasBg = false,
   bgUrl,
   children,
+  extraClasses
 }: props) => {
   return (
-    <section className={`pt-20 pb-20 relative ${bgColor}`}>
+    <section className={`pt-20 pb-20 relative ${bgColor} ${extraClasses}`}>
       {dividerPosition && dividerType === 'curve' && (
         <CurveDivider color={dividerColor} position={dividerPosition} />
       )}

@@ -6,7 +6,7 @@ const Footer = () => {
   console.log('ROUTER OBJECT', router);
 
   return (
-    <footer className="bg-ebony-200 text-gray-100 mt-auto">
+    <div className="bg-ebony-200 text-gray-100 mt-auto">
       {/* When page = contact enable the map in footer */}
       {router.pathname === '/contact' && (
         <div className="h-72">
@@ -52,7 +52,7 @@ const Footer = () => {
             </p>
             <p className="font-roboto mt-4 font-medium text-sm lg:mx-0 leading-loose">
               <span className="block"><span className="font-bold">Telefoonnummer:</span> 0000000 </span>
-              <span className="block"><span className="font-bold">Email:</span> info@jvg.nl </span>
+              <span className="block"><span className="font-bold">Email: </span><span><a className=" text-saffron-300 hover:text-saffron-400 cursor-pointer" href='mailto:info@dejeugdvangisteren.nl' title='Email de jeugd van gisteren'>info@dejeugdvangisteren.nl</a></span></span>
             </p>
           </div>
         </div>
@@ -65,7 +65,7 @@ const Footer = () => {
           <div></div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
 

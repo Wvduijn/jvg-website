@@ -1,17 +1,20 @@
 import Image from "next/image";
-import { getRandomColor } from '@services/random-color';
-import { useEffect, useState } from 'react'
+// import { getRandomColor } from "@services/random-color";
+import { getRandomImage } from '@services/random-image';
+import { useState, useEffect } from "react";
+
 
 Image;
 const PageHeader = (props: any) => {
-  const { imageUrl, pageName } = props;
+  const { pageName, color } = props;
   // The default value is '', it will be used during pre-rendering and the first render in the browser (hydration)
-  const [color, setColor] = useState('');
-  const backgroundColorizer = getRandomColor();
+  const [image, setImage] = useState('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8/B8AAssB5CY77SMAAAAASUVORK5CYII=');
+  const background = getRandomImage();
   // During hydration `useEffect` is called. `window` is available in `useEffect`. In this case because we know we're in the browser checking for window is not needed. If you need to read something from window that is fine.
   // By calling `setColor` in `useEffect` a render is triggered after hydrating, this causes the "browser specific" value to be available. In this case 'red'.
-  useEffect(() => setColor(backgroundColorizer), []);
+  useEffect(() => setImage(background), []);
   // As color is a state passed as a prop there is no mismatch between what was rendered server-side vs what was rendered in the first render. After useEffect runs the color is set to 'random color from the function'
+  
   const imageStyle = {
     opacity: 0.5,
   };
@@ -19,7 +22,7 @@ const PageHeader = (props: any) => {
   return (
     <section className={`${color} dark:text-gray-100 h-200 relative`}>
       <Image
-        src={imageUrl}
+        src={image}
         alt="JVG achtergrond image van een steiger"
         priority={true}
         placeholder="blur"

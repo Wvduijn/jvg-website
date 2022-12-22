@@ -5,7 +5,7 @@ const Header = () => {
     opacity: 0.5,
   };
   return (
-    <section className="bg-blue-violet-500 text-gray-100 h-500 relative">
+    <section className="bg-blue-violet-500 text-gray-100 relative">
       <Image
         src="/images/docks-background.jpg"
         alt="JVG achtergrond image van een steiger"
@@ -18,7 +18,7 @@ const Header = () => {
           objectPosition: "center"
         }}></Image>
       <div className="relative">
-        <div className="container mx-auto flex flex-col items-center px-4 py-16 text-center md:py-32 md:px-10 lg:px-32 xl:max-w-5xl z-10">
+        <div className="container mx-auto flex flex-col items-center px-4 py-8 text-center md:py-16 md:px-10 lg:px-32 xl:max-w-5xl z-10">
           <h1 className="font-montserrat text-4xl font-bold leading-none sm:text-5xl">
            Stichting <span className="text-saffron-500">De Jeugd van Gisteren</span>
           </h1>

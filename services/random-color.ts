@@ -10,10 +10,10 @@ export const getRandomColor = () => {
     'bg-kombu-500',
     'bg-kombu-200',
     'bg-ivory-500',
-    'bg-ivory-200',
     'bg-ebony-500',
     'bg-ebony-200',
   ];
   const randomColor = colorNames[Math.floor(Math.random() * colorNames.length)];
+  console.log('randomCOLOR', randomColor)
   return randomColor;
 };

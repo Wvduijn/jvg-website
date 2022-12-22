@@ -12,6 +12,16 @@ export default {
       title: 'Titel',
     },
     {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      validation: (Rule) => Rule.required(),
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+    },
+    {
       name: 'excerpt',
       description: 'Schrijf een korte samenvatting van deze post (voor SEO)',
       title: 'Excerpt',
@@ -57,8 +67,13 @@ export default {
       },
     },
     {
+      name: 'activityTime',
+      type: 'string',
+      title: 'Activiteit Tijd',
+    },
+    {
       title: 'Categorieën',
-      name: 'category',
+      name: 'categories',
       type: 'array',
       of: [
         {

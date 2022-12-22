@@ -1,4 +1,6 @@
 import Button from 'components/ui/buttons/Button';
+import Heading from 'components/ui/content/Heading';
+import Paragraph from 'components/ui/content/Paragraph';
 
 const About = () => {
   return (
@@ -35,24 +37,39 @@ const About = () => {
             </div>
           </div>
           <div className="w-full lg:w-1/2 xl:w-5/12 px-4 order-first">
-            <div className="mt-10 lg:mt-0">
+            <div className="lg:mt-0">
               <span className="font-robotoslab font-semibold text-lg text-primary mb-2 block">
-                Why Choose Us
+                Gezelligheid hoeft niet duur te zijn
               </span>
-              <h2 className="font-robotoslab font-bold text-3xl sm:text-4xl text-dark mb-8">
-                Make your customers happy by giving services.
-              </h2>
-              <p className="font-roboto text-base text-body-color mb-8">
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
-                The point of using Lorem Ipsum is that it has a more-or-less.
-              </p>
-              <p className="text-base text-body-color mb-8">
-                A domain name is one of the first steps to establishing your
-                brand. Secure a consistent brand image with a domain name that
-                matches your business.
-              </p>
-              <Button color="purple" extraClasses='' size='md'>Onze Activiteiten</Button>
+              <Heading
+                type="h3"
+                weight="font-semibold"
+                color="purple"
+                extraClasses=""
+              >
+                Over 'De Jeugd van Gisteren'
+              </Heading>
+              <Paragraph>
+                Stichting 'De Jeugd van Gisteren' beheert een senioren
+                sociëteit. Wij zijn al ruim 30 jaar gevestigd in ons eigen
+                gebouw aan de Beemsterstraat 4 te Hoofddorp. Onze belangrijkste
+                taak is het faciliteren van een veilige en gezellige omgeving
+                waarin senioren zich op een prettige manier kunnen ontspannen.
+              </Paragraph>
+              <Paragraph>
+                Als stichting organiseren wij niet zelf de activiteiten, wij
+                maken ze mogelijk. Alle activiteiten die in ons gebouw
+                plaatsvinden worden georganiseerd door zelfstandige verenigingen
+                en clubs.
+              </Paragraph>
+              <Paragraph>
+                <span className="font-bold">
+                  Ons motto: Gezelligheid hoeft niet duur te zijn!
+                </span>
+              </Paragraph>
+              <Button color="purple" extraClasses="" size="md">
+                Onze Activiteiten
+              </Button>
             </div>
           </div>
         </div>
