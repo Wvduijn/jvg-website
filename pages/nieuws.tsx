@@ -2,6 +2,9 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
+// layout
+import MainLayout from '@components/layouts/main_layout';
+
 // Components
 import Heading from 'components/ui/content/Heading';
 import Section from 'components/sections/Section';
@@ -34,7 +37,7 @@ const News: NextPage = (props: any) => {
         />
       </Head>
       <PageHeader color="bg-blue-violet-300" pageName="Nieuws" />
-      
+      <MainLayout>
         <Section bgColor="bg-white">
           <Container>
             <Heading
@@ -88,6 +91,7 @@ const News: NextPage = (props: any) => {
             </div>
           </Container>
         </Section>
+        </MainLayout>
       
     </>
   );

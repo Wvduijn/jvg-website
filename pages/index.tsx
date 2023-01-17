@@ -1,6 +1,8 @@
 // framework specific imports
 import type { NextPage } from 'next';
-import { useRouter } from 'next/router';
+
+// layout
+import MainLayout from 'components/layouts/main_layout';
 
 // components
 import About from 'components/sections/About';
@@ -11,9 +13,6 @@ import NewsCard from 'components/ui/news/NewsCard';
 
 // SEO
 import SEO from 'components/seo/SEO';
-
-// Framer Motion
-import { motion } from 'framer-motion';
 
 // Sanity Client
 import client from '@lib/sanity';
@@ -27,12 +26,10 @@ import { indexQuery } from '@lib/newsQueries';
 import { newsProps } from '@lib/types/newsProps';
 
 const Home: NextPage = ({ news }: any) => {
-  const router = useRouter();
-
   return (
     <>
-      <SEO pageTitle="Homepage" pageDescription="Welcome to my website" />
-      <Header />
+    <Header />
+    <MainLayout>
       <Section bgColor="bg-white">
         <Container>
           <About />
@@ -50,36 +47,38 @@ const Home: NextPage = ({ news }: any) => {
           </Heading>
           <div className="grid grid-cols-2 gap-8 mt-6">
             {/* map news items to news cards */}
-            {news && news.map(
-              ({
-                title,
-                excerpt,
-                mainImage,
-                publishedAt,
-                slug,
-                authorName,
-                authorImage,
-                categories,
-                _id,
-              }: newsProps) => {
-                return (
-                  <NewsCard
-                    key={_id}
-                    title={title}
-                    description={excerpt}
-                    imageUrl={buildUrl(mainImage).url()}
-                    slug={slug.current}
-                    tags={categories}
-                    authorName={authorName}
-                    authorImage={buildUrl(authorImage).url()}
-                    publishedAt={publishedAt}
-                  />
-                );
-              }
-            )}
+            {news &&
+              news.map(
+                ({
+                  title,
+                  excerpt,
+                  mainImage,
+                  publishedAt,
+                  slug,
+                  authorName,
+                  authorImage,
+                  categories,
+                  _id,
+                }: newsProps) => {
+                  return (
+                    <NewsCard
+                      key={_id}
+                      title={title}
+                      description={excerpt}
+                      imageUrl={buildUrl(mainImage).url()}
+                      slug={slug.current}
+                      tags={categories}
+                      authorName={authorName}
+                      authorImage={buildUrl(authorImage).url()}
+                      publishedAt={publishedAt}
+                    />
+                  );
+                }
+              )}
           </div>
         </Container>
       </Section>
+    </MainLayout>
     </>
   );
 };

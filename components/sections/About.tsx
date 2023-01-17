@@ -7,7 +7,7 @@ const About = () => {
     <section className="pt-6 lg:pt-[32px] overflow-hidden">
       <div className="container">
         <div className="flex flex-wrap justify-between items-center -mx-4">
-          <div className="w-full lg:w-6/12 px-4">
+          <div className="w-full lg:w-5/12 px-4">
             <div className="flex items-center -mx-3 sm:-mx-4 order-2">
               <div className="w-full xl:w-1/2 px-3 sm:px-4">
                 <div className="py-3 sm:py-4">
@@ -36,7 +36,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="w-full lg:w-1/2 xl:w-5/12 px-4 order-first">
+          <div className="w-full lg:w-1/2 xl:w-6/12 px-4 order-first">
             <div className="lg:mt-0">
               <span className="font-robotoslab font-semibold text-lg text-primary mb-2 block">
                 Gezelligheid hoeft niet duur te zijn

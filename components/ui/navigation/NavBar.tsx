@@ -1,15 +1,17 @@
+// framework specific imports
 import { useState } from 'react';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+// components
 import Image from "next/image";
 import NavBarLink from './NavBarLink';
 
+// data
 import menu from '../../../data/menu.json';
 
 const NavBar = (props: any) => {
-  // destructure props
-  const { items } = props;
-
   const { menu_items } = menu;
+  const router = useRouter();
 
   // State
   const [navHidden, setNavHidden] = useState(true);
@@ -92,7 +94,7 @@ const NavBar = (props: any) => {
                 <NavBarLink
                   goto={item.link}
                   title={item.title}
-                  active={item.active}
+                  active={router.pathname == item.link}
                   key={item.title}
                 />
               );

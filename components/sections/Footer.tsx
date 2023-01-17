@@ -60,7 +60,7 @@ const Footer = () => {
         <div className="my-8 border-b-2 border-saffron-500"></div>
         <div className="pb-0 text-sm font-normal flex flex-col sm:flex-row justify-between items-center">
           <div className="w-full text-center">
-            &copy; Copyright 2022, Stichting De jeugd van gisteren
+            {`© Copyright ${new Date().getFullYear()}, Stichting De jeugd van gisteren`}
           </div>
           <div></div>
         </div>

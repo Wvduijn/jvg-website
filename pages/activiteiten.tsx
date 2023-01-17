@@ -2,6 +2,9 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
+// layout which handles animation
+import MainLayout from '@components/layouts/main_layout';
+
 // Components
 import Heading from 'components/ui/content/Heading';
 import Section from 'components/sections/Section';
@@ -21,7 +24,7 @@ import { transformDate } from '@services/date';
 // Sanity Client
 import client from '@lib/sanity';
 
-const News: NextPage = (props: any) => {
+const Activities: NextPage = (props: any) => {
   // get activities
   const { activities } = props;
 
@@ -35,70 +38,71 @@ const News: NextPage = (props: any) => {
         />
       </Head>
       <PageHeader color="bg-saffron-300" pageName="Activiteiten" />
+      <MainLayout>
+        <Section bgColor="bg-white">
+          <Container>
+            <Heading
+              type="h2"
+              weight="font-semibold"
+              color="purple"
+              extraClasses="!mb-0"
+            >
+              Activiteiten
+            </Heading>
+            <Heading
+              type="h6"
+              weight="font-normal"
+              color="text-gray-500"
+              extraClasses="mb-0"
+            >
+              Opsomming van alle vaste activiteiten binnen JvG zoals nu
+              vastgelegd.
+            </Heading>
+            <Paragraph>
+              De JVG organiseert activiteiten op allerlei gebieden. Dit kunnen
+              activiteiten zijn op hobby gebied, maar ook om de sociale
+              contacten te onderhouden. Sommige zijn er wekelijks, andere
+              maandelijks. Gedurende het jaar worden er nog een aantal speciale
+              activiteiten georganiseerd. Voorbeelden hiervan zijn De kerst
+              instuif of de vrijheidsmaaltijd.
+            </Paragraph>
+            <Paragraph>
+              Een overzicht van onze activiteiten vindt u hieronder:
+            </Paragraph>
 
-      <Section bgColor="bg-white">
-        <Container>
-          <Heading
-            type="h2"
-            weight="font-semibold"
-            color="purple"
-            extraClasses="!mb-0"
-          >
-            Activiteiten
-          </Heading>
-          <Heading
-            type="h6"
-            weight="font-normal"
-            color="text-gray-500"
-            extraClasses="mb-0"
-          >
-            Opsomming van alle vaste activiteiten binnen JvG zoals nu
-            vastgelegd.
-          </Heading>
-          <Paragraph>
-            De JVG organiseert activiteiten op allerlei gebieden. Dit kunnen
-            activiteiten zijn op hobby gebied, maar ook om de sociale contacten
-            te onderhouden. Sommige zijn er wekelijks, andere maandelijks.
-            Gedurende het jaar worden er nog een aantal speciale activiteiten
-            georganiseerd. Voorbeelden hiervan zijn De kerst instuif of de
-            vrijheidsmaaltijd.
-          </Paragraph>
-          <Paragraph>
-            Een overzicht van onze activiteiten vindt u hieronder:
-          </Paragraph>
-
-          {/* NEWS ITEMS */}
-          <hr className="my-8 h-px bg-gray-300 border-0"></hr>
-          <div className="flex flex-wrap -mx-4">
-            {/* map activities */}
-            {activities.map(
-              ({
-                title,
-                excerpt,
-                mainImage,
-                publishedAt,
-                slug,
-                categories,
-                activityDate,
-                _id,
-              }: activityProps) => {
-                return (
-                  <EventCard
-                    key={_id}
-                    title={title}
-                    description={excerpt}
-                    imageUrl={buildUrl(mainImage).url()}
-                    imageAlt={mainImage.alt}
-                    slug={slug.current}
-                    tags={categories}
-                    date={transformDate(activityDate)}
-                  />
-                );
-              }
-            )}
-          </div>
-        </Container>
-      </Section>
+            {/* Indien er meer activiteiten zijn render dan ook een selectie van deze */}
+            <hr className="my-8 h-px bg-gray-300 border-0"></hr>
+            <div className="flex flex-wrap -mx-4">
+              {/* map activities */}
+              {activities.map(
+                ({
+                  title,
+                  excerpt,
+                  mainImage,
+                  publishedAt,
+                  slug,
+                  categories,
+                  activityDate,
+                  _id,
+                }: activityProps) => {
+                  return (
+                    <EventCard
+                      key={_id}
+                      title={title}
+                      description={excerpt}
+                      imageUrl={buildUrl(mainImage).url()}
+                      imageAlt={mainImage.alt}
+                      slug={slug.current}
+                      tags={categories}
+                      date={transformDate(activityDate)}
+                    />
+                  );
+                }
+              )}
+            </div>
+          </Container>
+        </Section>
+      </MainLayout>
     </>
   );
 };
@@ -112,4 +116,4 @@ export async function getStaticProps() {
   };
 }
 
-export default News;
+export default Activities;
