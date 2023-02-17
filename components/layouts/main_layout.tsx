@@ -24,11 +24,8 @@ const MainLayout = ({ children }: Props) => {
         exit="exit"
         variants={variants}
         transition={{ type: 'linear' }}
-        
       >
-      
         {children}
-       
       </motion.main>
     </>
   );

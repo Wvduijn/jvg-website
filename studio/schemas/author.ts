@@ -2,7 +2,7 @@ import { MdPersonAddAlt1 } from 'react-icons/md';
 
 export default {
     name: 'author',
-    title: 'Author',
+    title: 'Auteur',
     type: 'document',
     icon: MdPersonAddAlt1,
     fields: [

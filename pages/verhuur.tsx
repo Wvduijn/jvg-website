@@ -1,4 +1,5 @@
 // Next imports
+import { NextSeo } from 'next-seo';
 import type { NextPage } from 'next';
 
 // layout which handles animation
@@ -18,9 +19,9 @@ import SEO from 'components/seo/SEO';
 const Rental: NextPage = (props: any) => {
   return (
     <>
-      <SEO
-        pageTitle="JVG | Verhuurmogelijkheden"
-        pageDescription="De verhuurmogelijkheden van de JVG"
+      <NextSeo
+        title="De Jeugd van Gisteren | Verhuurmogelijkheden"
+        description="De verhuurmogelijkheden van de JVG"
       />
       <PageHeader color="bg-blue-violet-300" pageName="Verhuurmogelijkheden" />
       <MainLayout>
@@ -65,7 +66,7 @@ const Rental: NextPage = (props: any) => {
             <Paragraph>
               Neemt u gerust contact op en we kunnen samen kijken naar de
               mogelijkheden. <br />
-              Dit kan via {' '}
+              Dit kan via{' '}
               <Hyperlink
                 href="mailto:contact@jeugdvangisteren.nl"
                 text="contact@jeugdvangisteren.nl"
@@ -73,7 +74,8 @@ const Rental: NextPage = (props: any) => {
                 title="Contact de jeugd van gisteren"
                 color="text-saffron-500"
                 hoverColor="hover:text-saffron-400"
-              ></Hyperlink> of via telefoonnummer: 0612345678
+              ></Hyperlink>{' '}
+              of via telefoonnummer: 0612345678
             </Paragraph>
           </Container>
         </Section>

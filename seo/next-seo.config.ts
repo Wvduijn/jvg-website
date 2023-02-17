@@ -4,7 +4,7 @@ const config: DefaultSeoProps = {
   openGraph: {
     type: 'website',
     locale: 'en_IE',
-    url: 'https://www.dejeugdvangisteren.nl/',
+    url: 'https://www.jeugdvangisteren.nl/',
     siteName: 'Stichting de JVG | De jeugd van gisteren',
   },
 //   twitter: {

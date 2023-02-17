@@ -1,4 +1,5 @@
 // Next imports
+import { NextSeo } from 'next-seo';
 import type { NextPage } from 'next';
 
 // layout which handles animation
@@ -19,6 +20,11 @@ import Board from 'components/ui/organisation/Board';
 const Organisation: NextPage = (props: any) => {
   return (
     <>
+      <NextSeo
+        title="De Jeugd van Gisteren | Organisatie"
+        description="De rechtsvorm van 'De Jeugd van Gisteren' (JvG) is een stichting.
+        JvG heeft een bestuur bestaande uit vrijwilligers."
+      />
       <SEO
         pageTitle="JVG | Organisatie"
         pageDescription="De organisatie van de JVG"

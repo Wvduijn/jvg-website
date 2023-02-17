@@ -1,4 +1,5 @@
 // Next imports
+import { NextSeo } from 'next-seo';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
@@ -30,13 +31,10 @@ const Activities: NextPage = (props: any) => {
 
   return (
     <>
-      <Head>
-        <title>Stichting de JVG | Activiteiten</title>
-        <meta
-          name="description"
-          content="De Jeugd van Gisteren | Activiteiten"
-        />
-      </Head>
+     <NextSeo
+        title="De Jeugd van Gisteren | Activiteiten"
+        description="Overzicht van alle vaste activiteiten binnen JvG zoals nu vastgelegd"
+      />
       <PageHeader color="bg-saffron-300" pageName="Activiteiten" />
       <MainLayout>
         <Section bgColor="bg-white">
@@ -55,7 +53,7 @@ const Activities: NextPage = (props: any) => {
               color="text-gray-500"
               extraClasses="mb-0"
             >
-              Opsomming van alle vaste activiteiten binnen JvG zoals nu
+              Overzicht van alle vaste activiteiten binnen JvG zoals nu
               vastgelegd.
             </Heading>
             <Paragraph>

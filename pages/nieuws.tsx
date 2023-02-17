@@ -1,6 +1,6 @@
 // Next imports
+import { NextSeo } from 'next-seo';
 import type { NextPage } from 'next';
-import Head from 'next/head';
 
 // layout
 import MainLayout from '@components/layouts/main_layout';
@@ -17,7 +17,6 @@ import NewsCard from 'components/ui/news/NewsCard';
 import { newsProps } from '@lib/types/newsProps';
 
 // Helpers
-import { getRandomImage } from '@services/random-image';
 import buildUrl from '@services/sanity-urlbuilder';
 
 // Sanity Client
@@ -29,13 +28,10 @@ const News: NextPage = (props: any) => {
   const { news } = props;
   return (
     <>
-      <Head>
-        <title>Stichting de JVG | Nieuws</title>
-        <meta
-          name="description"
-          content="De Jeugd van Gisteren | Laatste Nieuws"
-        />
-      </Head>
+      <NextSeo
+        title="De Jeugd van Gisteren | Nieuws"
+        description="Voor al het laatste nieuws omtrent de JVG"
+      />
       <PageHeader color="bg-blue-violet-300" pageName="Nieuws" />
       <MainLayout>
         <Section bgColor="bg-white">
