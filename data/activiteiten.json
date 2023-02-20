@@ -1,0 +1,109 @@
+[
+    {
+      "day": "maandag",
+      "options": [
+        {
+          "time": "9:00 - 12:00",
+          "activity": "Hobbyclub"
+        },
+        {
+          "time": "13:00 - 17:00",
+          "activity": "Rummikub en Biljarten"
+        },
+        {
+          "time": "19:00 - 23:00",
+          "activity": "Zangvereniging \"Zang en vriendschap\""
+        }
+      ]
+    },
+    {
+      "day": "dinsdag",
+      "options": [
+        {
+          "time": "9:00 - 12:00",
+          "activity": "geen activiteiten / gesloten"
+        },
+        {
+          "time": "13:00 - 17:00",
+          "activity": "Bridgen en Biljarten"
+        },
+        {
+          "time": "19:00 - 23:00",
+          "activity": "Zangvereniging \"Cantarnus\""
+        }
+      ]
+    },
+    {
+      "day": "woensdag",
+      "options": [
+        {
+          "time": "9:00 - 12:00",
+          "activity": "geen activiteiten / gesloten"
+        },
+        {
+          "time": "13:00 - 17:00",
+          "activity": "Sjoelen, Koersbal en Biljarten. Elke 3e woensdag van de maand i.p.v. sjoelen en koersbal - Kienen."
+        },
+        {
+          "time": "19:00 - 23:00",
+          "activity": "Klaverjasvereniging \"Odigo\""
+        }
+      ]
+    },
+    {
+      "day": "donderdag",
+      "options": [
+        {
+          "time": "9:00 - 12:00",
+          "activity": "geen activiteiten / gesloten"
+        },
+        {
+          "time": "13:00 - 17:00",
+          "activity": "Klaverjassen en biljarten"
+        },
+        {
+          "time": "19:00 - 23:00",
+          "activity": "Bridgevereniging \"Meerbridge\""
+        }
+      ]
+    },
+    {
+      "day": "vrijdag",
+      "options": [
+        {
+          "time": "9:00 - 12:00",
+          "activity": "geen activiteiten / gesloten"
+        },
+        {
+          "time": "13:00 - 17:00",
+          "activity": "Biljarten"
+        },
+        {
+          "time": "19:00 - 23:00",
+          "activity": "1e vrijdag van de maand, Postzegelvereniging Hoofddorp"
+        }
+      ]
+    },
+    {
+      "day": "zaterdag",
+      "options": [
+        {
+          "time": "9:00 - 12:00",
+          "activity": "2e zaterdag van de maand, Postzegelvereniging Hoofddorp"
+        },
+        {
+          "time": "13:00 - 17:00",
+          "activity": "2e zaterdag van de maand, Postzegelvereniging Hoofddorp"
+        }
+      ]
+    },
+    {
+      "day": "zondag",
+      "options": [
+        {
+          "time": "13:00 - 17:00",
+          "activity": "3e zondag van de maand, Scala in Hoofddorp. Diverse zondagen, Zondagmiddag podium. Kijk voor het programma data en tijden op www.meerwaarde.nl"
+        }
+      ]
+    }
+  ]

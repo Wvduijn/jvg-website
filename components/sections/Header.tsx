@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from 'next/link';
 
 const Header = () => {
   const imageStyle = {
@@ -27,10 +28,10 @@ const Header = () => {
           </p>
           <div className="flex flex-wrap justify-center">
             <button className="px-8 py-3 m-2 text-lg font-semibold rounded-lg bg-blue-violet-500 hover:bg-blue-violet-400 text-white transition-colors ease-in">
-              Onze activiteiten
+              <Link href={`/activiteiten`}>Onze activiteiten</Link>
             </button>
             <button className="px-8 py-3 m-2 text-lg font-semibold rounded-lg bg-saffron-500 hover:bg-saffron-400 text-white transition-colors ease-in">
-              Over ons
+            <Link href={`/organisatie`}>Over ons</Link>
             </button>
           </div>
         </div>

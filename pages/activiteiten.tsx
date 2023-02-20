@@ -1,8 +1,7 @@
 // Next imports
 import { NextSeo } from 'next-seo';
 import type { NextPage } from 'next';
-import Head from 'next/head';
-
+import data from '../data/activiteiten.json'
 // layout which handles animation
 import MainLayout from '@components/layouts/main_layout';
 
@@ -13,6 +12,7 @@ import PageHeader from 'components/sections/PageHeader';
 import Container from 'components/sections/Container';
 import Paragraph from 'components/ui/content/Paragraph';
 import EventCard from 'components/ui/events/EventCard';
+import WeekTable from '@components/ui/weektable/WeekTable';
 
 // Types
 import { activityProps } from '@lib/types/activityProps';
@@ -31,7 +31,7 @@ const Activities: NextPage = (props: any) => {
 
   return (
     <>
-     <NextSeo
+      <NextSeo
         title="De Jeugd van Gisteren | Activiteiten"
         description="Overzicht van alle vaste activiteiten binnen JvG zoals nu vastgelegd"
       />
@@ -64,13 +64,19 @@ const Activities: NextPage = (props: any) => {
               activiteiten georganiseerd. Voorbeelden hiervan zijn De kerst
               instuif of de vrijheidsmaaltijd.
             </Paragraph>
-            <Paragraph>
-              Een overzicht van onze activiteiten vindt u hieronder:
-            </Paragraph>
+           
+            <Heading
+              type="h6"
+              weight="font-normal"
+              color="text-saffron-500"
+              extraClasses="mb-0"
+            >
+              Een overzicht van onze aankomende activiteiten:
+            </Heading>
 
             {/* Indien er meer activiteiten zijn render dan ook een selectie van deze */}
             <hr className="my-8 h-px bg-gray-300 border-0"></hr>
-            <div className="flex flex-wrap -mx-4">
+            <div className="flex flex-wrap -mx-4 mb-6">
               {/* map activities */}
               {activities.map(
                 ({
@@ -98,6 +104,15 @@ const Activities: NextPage = (props: any) => {
                 }
               )}
             </div>
+            <Heading
+              type="h6"
+              weight="font-normal"
+              color="text-saffron-500"
+              extraClasses="mb-0"
+            >
+              Een overzicht van onze vaste activiteiten vindt u hieronder:
+            </Heading>
+            <WeekTable data={data} />
           </Container>
         </Section>
       </MainLayout>
@@ -107,6 +122,7 @@ const Activities: NextPage = (props: any) => {
 
 export async function getStaticProps() {
   const activities = await client.fetch(indexQuery);
+
   return {
     props: {
       activities,

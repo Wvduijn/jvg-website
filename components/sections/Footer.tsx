@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 
 const Footer = () => {
   const router = useRouter();
-  console.log('ROUTER OBJECT', router);
 
   return (
     <div className="bg-ebony-200 text-gray-100 mt-auto">

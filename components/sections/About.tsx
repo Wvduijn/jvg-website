@@ -1,6 +1,7 @@
 import Button from 'components/ui/buttons/Button';
 import Heading from 'components/ui/content/Heading';
 import Paragraph from 'components/ui/content/Paragraph';
+import Link from 'next/link';
 
 const About = () => {
   return (
@@ -68,7 +69,7 @@ const About = () => {
                 </span>
               </Paragraph>
               <Button color="purple" extraClasses="" size="md">
-                Onze Activiteiten
+              <Link href={"/activiteiten"}>Onze Activiteiten</Link>
               </Button>
             </div>
           </div>

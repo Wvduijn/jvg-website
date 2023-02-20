@@ -88,7 +88,7 @@ const NavBar = (props: any) => {
               : 'opacity-0 -translate-x-full'
           } `}
         >
-          <div className="flex flex-col md:flex-row md:mx-6">
+          <div className="flex flex-col md:flex-row md:mx-6 gap-4 md:gap-0">
             {menu_items.map((item) => {
               return (
                 <NavBarLink
