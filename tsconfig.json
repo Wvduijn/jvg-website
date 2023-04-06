@@ -21,6 +21,6 @@
       "@lib/*": ["lib/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "data/menu.json"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "data/menu.json", "studio/schemas/activity_category.js", "studio/schemas/activity.js", "studio/schemas/author.js", "studio/schemas/blockContent.js", "studio/schemas/news_category.js", "studio/schemas/news_post.js", "studio/schemas/schema.js", "studio/schemas/singleton_example.js", "studio/schemas/site_settings.js"],
   "exclude": ["node_modules"]
 }

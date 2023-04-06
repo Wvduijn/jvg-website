@@ -25,7 +25,6 @@ import { transformDate } from '@services/date';
 import client from '@lib/sanity';
 import Paragraph from 'components/ui/content/Paragraph';
 
-// TODO properly type newsitems - extract to helper Object.
 const myPortableTextComponents = newsPortableTextComponents;
 
 const ActivityDetailPage = ({ activityItem, moreActivities }: any) => {

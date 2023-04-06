@@ -4,7 +4,7 @@
 const previewSecret = process.env.SANITY_PREVIEW_SECRET
 
 // Replace `remoteUrl` with your deployed Next.js site
-const remoteUrl = `https://www.dejvg.nl`
+const remoteUrl = `https://www.jeugdvangisteren.nl`
 const localUrl = `http://localhost:3000`
 
 export default function resolveProductionUrl(doc) {

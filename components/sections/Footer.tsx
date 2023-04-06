@@ -50,8 +50,7 @@ const Footer = () => {
               Voor alle vragen over de mogelijkheden bij JvG, de zaalhuur, activiteiten, etc. kunt u terecht bij de voorzitter.
             </p>
             <p className="font-roboto mt-4 font-medium text-sm lg:mx-0 leading-loose">
-              <span className="block"><span className="font-bold">Telefoonnummer:</span> 0000000 </span>
-              <span className="block"><span className="font-bold">Email: </span><span><a className=" text-saffron-300 hover:text-saffron-400 cursor-pointer" href='mailto:info@dejeugdvangisteren.nl' title='Email de jeugd van gisteren'>info@dejeugdvangisteren.nl</a></span></span>
+              <span className="block"><span className="font-bold">Email: </span><span><a className=" text-saffron-300 hover:text-saffron-400 cursor-pointer" href='mailto:contact@jeugdvangisteren.nl' title='Email de jeugd van gisteren'>contact@jeugdvangisteren.nl</a></span></span>
             </p>
           </div>
         </div>

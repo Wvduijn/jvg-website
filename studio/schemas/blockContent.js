@@ -8,6 +8,8 @@
  *    type: 'blockContent'
  *  }
  */
+import { MdImage} from 'react-icons/md';
+
  export default {
     title: 'Block Content',
     name: 'blockContent',
@@ -47,9 +49,20 @@
                 {
                   title: 'URL',
                   name: 'href',
-                  type: 'url'
+                  type: 'url',
+                  validation: Rule => Rule.uri({
+                    scheme: ['http', 'https', 'mailto', 'tel']
+                  })
                 }
               ]
+            },
+            {
+              title: 'Inline Image',
+              name: 'inlineImage',
+              type: 'image',
+              blockEditor: {
+                icon: MdImage,
+              }
             }
           ]
         }

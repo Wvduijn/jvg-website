@@ -27,30 +27,29 @@ const Contact = () => {
               activiteiten, etc. kunt u terecht bij de voorzitter JvG.
             </Paragraph>
             <div className="flex flex-wrap mt-8">
-              <div className="w-full md:w-1/3">
+              <div className="w-full md:w-1/2">
                 <h2 className="text-lg font-medium">Email</h2>
-                <Paragraph>info@jeugdvangisteren.nl</Paragraph>
-              </div>
-              <div className="w-full md:w-1/3">
-                <h2 className="text-lg font-medium">Telefoon</h2>
-                <Paragraph>555-555-5555</Paragraph>
-              </div>
-              <div className="w-full md:w-1/3">
+                <Paragraph>contact@jeugdvangisteren.nl</Paragraph>
                 <h2 className="text-lg font-medium">Adres</h2>
-                <Paragraph>Beemsterstraat 4</Paragraph>
-                <Paragraph>2131 ZB Hoofddorp</Paragraph>
+                <Paragraph>
+                  Beemsterstraat 4 <br />
+                  2131 ZB Hoofddorp
+                </Paragraph>
               </div>
-              <Image
-                src="/images/sfeer/cards.jpg"
-                alt="sfeer foto"
-                width={600}
-                height={400}
-                priority={true}
-                style={{
-                  maxWidth: '100%',
-                  height: 'auto',
-                }}
-              />
+              <div className="w-full md:w-1/2 rounded-xl">
+                <Image
+                  src="/images/sfeer/cards.jpg"
+                  alt="sfeer foto"
+                  width={600}
+                  height={400}
+                  priority={true}
+                  style={{
+                    maxWidth: '100%',
+                    height: 'auto',
+                  }}
+                  className="rounded-2xl"
+                />
+              </div>
             </div>
           </Container>
         </Section>
