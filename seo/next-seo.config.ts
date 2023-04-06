@@ -3,7 +3,7 @@ import { DefaultSeoProps } from 'next-seo';
 const config: DefaultSeoProps = {
   openGraph: {
     type: 'website',
-    locale: 'en_IE',
+    locale: 'nl_NL',
     url: 'https://www.jeugdvangisteren.nl/',
     siteName: 'Stichting de JVG | De jeugd van gisteren',
   },

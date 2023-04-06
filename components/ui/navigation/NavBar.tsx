@@ -51,7 +51,7 @@ const NavBar = (props: any) => {
                 className={`w-6 h-6 ${navHidden ? '' : 'hidden'}`}
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
+                stroke="purple"
                 strokeWidth="2"
               >
                 <path
@@ -67,7 +67,7 @@ const NavBar = (props: any) => {
                 className={`w-6 h-6 ${!navHidden ? '' : 'hidden'}`}
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
+                stroke="purple"
                 strokeWidth="2"
               >
                 <path
