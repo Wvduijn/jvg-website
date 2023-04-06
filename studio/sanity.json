@@ -2,7 +2,7 @@
   "root": true,
   "project": {
     "name": "jvg-website",
-    "basepath": "/studio"
+    "basepath": "/studio/"
   },
   "api": {
     "projectId": "kzklufkv",

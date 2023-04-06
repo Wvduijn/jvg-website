@@ -1,6 +1,7 @@
 // Next imports
 import { NextSeo } from 'next-seo';
 import type { NextPage } from 'next';
+import Image from 'next/image';
 
 // layout which handles animation
 import MainLayout from '@components/layouts/main_layout';
@@ -57,8 +58,20 @@ const Rental: NextPage = (props: any) => {
               maximaal 100.
             </Paragraph>
 
-            <div className="mb-6 h-96 w-full rounded-xl bg-gray-50">
-              image hier
+            <div className="mb-6 h-96 w-full rounded-xl bg-gray-50 relative">
+              <Image
+                src={`/images/fotos/interieur_zaal_4.jpg`}
+                alt="sfeer foto van de zaal"
+                priority={true}
+                placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8/B8AAssB5CY77SMAAAAASUVORK5CYII="
+                fill
+                style={{
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                }}
+                className="rounded-xl"
+              />
             </div>
             <Heading type="h6" weight="font-bold" color="purple">
               Heeft u interesse?
@@ -75,7 +88,7 @@ const Rental: NextPage = (props: any) => {
                 color="text-saffron-500"
                 hoverColor="hover:text-saffron-400"
               ></Hyperlink>{' '}
-              of via telefoonnummer: 0612345678
+              
             </Paragraph>
           </Container>
         </Section>

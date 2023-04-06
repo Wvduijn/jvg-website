@@ -35,8 +35,8 @@ export default {
     {
       title: 'Omschrijving',
       name: 'description',
-      type: 'array',
-      of: [{ type: 'block' }],
+      type: 'blockContent',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'mainImage',

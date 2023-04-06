@@ -1,6 +1,7 @@
 // Next imports
 import { NextSeo } from 'next-seo';
 import type { NextPage } from 'next';
+import Image from 'next/image';
 
 // layout which handles animation
 import MainLayout from '@components/layouts/main_layout';
@@ -60,8 +61,20 @@ const Organisation: NextPage = (props: any) => {
               bar, houden het pand schoon, bewaken de voorraad en vullen deze
               tijdig aan en voren onderhoud uit aan het pand en de inrichting.
             </Paragraph>
-            <div className="mb-6 h-96 w-full rounded-xl bg-gray-50">
-              image hier
+            <div className="mb-6 h-96 w-full rounded-xl bg-gray-50 relative">
+              <Image
+                src={`/images/fotos/interieur_zaal_3.jpg`}
+                alt="sfeer foto van de zaal"
+                priority={true}
+                placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8/B8AAssB5CY77SMAAAAASUVORK5CYII="
+                fill
+                style={{
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                }}
+                className="rounded-xl"
+              />
             </div>
 
             <Complaint color="bg-kombu-500" />

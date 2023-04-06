@@ -2,6 +2,7 @@ import Button from 'components/ui/buttons/Button';
 import Heading from 'components/ui/content/Heading';
 import Paragraph from 'components/ui/content/Paragraph';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const About = () => {
   return (
@@ -12,26 +13,62 @@ const About = () => {
             <div className="flex items-center -mx-3 sm:-mx-4 order-2">
               <div className="w-full xl:w-1/2 px-3 sm:px-4">
                 <div className="py-3 sm:py-4">
-                  <img
-                    src="https://cdn.tailgrids.com/1.0/assets/images/services/image-1.jpg"
-                    alt=""
-                    className="rounded-2xl w-full"
-                  />
+                  <Image
+                    src={`/images/fotos/interieur_zaal_2.jpg`}
+                    alt={`sfeer foto van de zaal`}
+                    priority={true}
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8/B8AAssB5CY77SMAAAAASUVORK5CYII="
+                    width={100}
+                    height={200}
+                    style={{
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                      minHeight: '200px',
+                      width: '100%',
+                      height: '200px'
+                    }}
+                    className="rounded-xl"
+                  />  
                 </div>
                 <div className="py-3 sm:py-4">
-                  <img
-                    src="https://cdn.tailgrids.com/1.0/assets/images/services/image-2.jpg"
-                    alt=""
-                    className="rounded-2xl w-full"
+                <Image
+                    src={`/images/sfeer/cards.jpg`}
+                    alt={`sfeer foto`}
+                    priority={true}
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8/B8AAssB5CY77SMAAAAASUVORK5CYII="
+                    width={100}
+                    height={200}
+                    style={{
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                      minHeight: '200px',
+                      width: '100%',
+                      height: '200px'
+                    }}
+                    className="rounded-xl"
                   />
                 </div>
               </div>
               <div className="w-full xl:w-1/2 px-3 sm:px-4">
                 <div className="my-4 relative z-10">
-                  <img
-                    src="https://cdn.tailgrids.com/1.0/assets/images/services/image-3.jpg"
-                    alt=""
-                    className="rounded-2xl w-full"
+                <Image
+                    src={`/images/fotos/interieur_zaal.jpg`}
+                    alt={`sfeer foto van de zaal`}
+                    priority={true}
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8/B8AAssB5CY77SMAAAAASUVORK5CYII="
+                    width={100}
+                    height={200}
+                    style={{
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                      minHeight: '200px',
+                      width: '100%',
+                      height: '200px'
+                    }}
+                    className="rounded-xl"
                   />
                 </div>
               </div>
@@ -69,7 +106,7 @@ const About = () => {
                 </span>
               </Paragraph>
               <Button color="purple" extraClasses="" size="md">
-              <Link href={"/activiteiten"}>Onze Activiteiten</Link>
+                <Link href={'/activiteiten'}>Onze Activiteiten</Link>
               </Button>
             </div>
           </div>
