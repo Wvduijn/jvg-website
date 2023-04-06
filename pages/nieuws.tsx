@@ -53,18 +53,8 @@ const News: NextPage = (props: any) => {
               over het reilen en zeilen binnen de Stichting
             </Heading>
             <Paragraph>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-              enim, porro inventore aliquam accusantium ipsum laudantium
-              voluptatum laborum mollitia. Vero odit, distinctio sed excepturi
-              illo ipsa esse inventore deleniti et.
+              Hier leest u het laatste nieuws omtrent de Stichting. 
             </Paragraph>
-            <Paragraph>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-              enim, porro inventore aliquam accusantium ipsum laudantium
-              voluptatum laborum mollitia. Vero odit, distinctio sed excepturi
-              illo ipsa esse inventore deleniti et.
-            </Paragraph>
-
             {/* NEWS ITEMS */}
             <hr className="my-8 h-px bg-gray-300 border-0"></hr>
             <div className="grid grid-cols-2 gap-8 mt-6">
