@@ -18,6 +18,7 @@ import Footer from 'components/sections/Footer';
 import { DefaultSeo } from 'next-seo';
 import SEO from '../seo/next-seo.config';
 import Head from 'next/head';
+import { Analytics } from '@vercel/analytics/react';
 
 // Framer motion
 import { AnimatePresence } from 'framer-motion';
@@ -69,6 +70,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </main>
         <Footer />
       </div>
+      <Analytics />
     </>
   );
 }

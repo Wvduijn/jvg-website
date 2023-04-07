@@ -96,6 +96,7 @@ const NavBar = (props: any) => {
                   title={item.title}
                   active={router.pathname == item.link}
                   key={item.title}
+                  onClick={navToggle}
                 />
               );
             })}
