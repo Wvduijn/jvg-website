@@ -48,7 +48,7 @@ const Home: NextPage = ({ news }: any) => {
             >
               Laatste nieuws
             </Heading>
-            <div className="grid grid-cols-2 gap-8 mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2  gap-8 mt-6">
               {/* map news items to news cards */}
               {news &&
                 news.map(
