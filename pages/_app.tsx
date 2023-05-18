@@ -18,6 +18,7 @@ import Footer from 'components/sections/Footer';
 import { DefaultSeo } from 'next-seo';
 import SEO from '../seo/next-seo.config';
 import Head from 'next/head';
+import { Analytics } from '@vercel/analytics/react';
 
 // Framer motion
 import { AnimatePresence } from 'framer-motion';
@@ -52,6 +53,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <link rel="manifest" href="images/favicon/site.webmanifest" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="google-site-verification" content="4xRgHbE8o7sGxnYwOvw4PuBtw_epmDoFxNEArEhR6GE" />
       </Head>
 
       <div className="flex min-h-screen flex-col">
@@ -69,6 +71,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </main>
         <Footer />
       </div>
+      <Analytics />
     </>
   );
 }
