@@ -54,7 +54,7 @@ const NewsDetailPage = ({ newsitem, moreNews, gallery }: any) => {
                   value={newsitem.body}
                   components={myPortableTextComponents}
                 />
-                {newsitem.photoGallery.images.length && (
+                {gallery !== null && (
                   <div className="mt-2">
                     <Heading type="h6" weight="font-semibold" color="purple">
                       Foto galerij
@@ -181,10 +181,9 @@ export async function getStaticProps(context: any) {
     slug,
   });
 
-  // construct the images Array for the photo album if it's presente
-  const gallery = galleryBuilder(news.photoGallery?.images);
-
-
+  // construct the images Array for the photo album if it's present
+  const gallery = news.photoGallery?.images.length ? galleryBuilder(news.photoGallery?.images): null;
+  
   // When slug is not found return a 404
   if (!news) {
     return {
