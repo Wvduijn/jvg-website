@@ -57,7 +57,7 @@ const NewsDetailPage = ({ newsitem, moreNews, gallery }: any) => {
                 {newsitem.photoGallery.images.length && (
                   <div className="mt-2">
                     <Heading type="h6" weight="font-semibold" color="purple">
-                      Sfeer impressie
+                      Foto galerij
                     </Heading>
                     <SlideshowLightbox
                       className="container grid grid-cols-3 gap-2 mx-auto"
