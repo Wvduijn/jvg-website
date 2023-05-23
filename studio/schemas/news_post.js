@@ -67,6 +67,11 @@ export default {
       },
     },
     {
+      name: 'photoGallery',
+      title: 'Foto Gallerij',
+      type: 'gallery'
+    },
+    {
       name: 'categories',
       title: 'Categorieën',
       type: 'array',
