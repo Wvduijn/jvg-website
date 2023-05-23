@@ -34,7 +34,6 @@ import { SlideshowLightbox, initLightboxJS } from 'lightbox.js-react';
 const myPortableTextComponents = newsPortableTextComponents;
 
 const NewsDetailPage = ({ newsitem, moreNews, gallery }: any) => {
-
   useEffect(() => {
     initLightboxJS(`${process.env.NEXT_PUBLIC_LIGHTBOX_LICENSE}`, 'individual');
   }, []);
@@ -45,6 +44,7 @@ const NewsDetailPage = ({ newsitem, moreNews, gallery }: any) => {
         pageName={newsitem.title}
         featuredImage={buildUrl(newsitem.mainImage).url()}
       />
+      
       <MainLayout>
         <Section bgColor="bg-white">
           <Container>
@@ -105,44 +105,46 @@ const NewsDetailPage = ({ newsitem, moreNews, gallery }: any) => {
             </div>
           </Container>
         </Section>
-        <Section bgColor="bg-gradient-to-t from-kombu-200 to-kombu-500 grow">
-          <Container>
-            <Heading type="h3" color="white" weight="font-semibold">
-              Meer nieuws
-            </Heading>
-            <hr className="my-2 w-24 md:w-48 h-1 bg-gray-100 rounded border-0 dark:bg-gray-100"></hr>
-            <div className="grid grid-cols-2 gap-8 mt-6">
-              {/* map news items to news cards */}
-              {moreNews.map(
-                ({
-                  title,
-                  excerpt,
-                  mainImage,
-                  publishedAt,
-                  slug,
-                  authorName,
-                  authorImage,
-                  categories,
-                  _id,
-                }: newsProps) => {
-                  return (
-                    <NewsCard
-                      key={_id}
-                      title={title}
-                      description={excerpt}
-                      imageUrl={buildUrl(mainImage).url()}
-                      slug={slug.current}
-                      tags={categories}
-                      authorName={authorName}
-                      authorImage={buildUrl(authorImage).url()}
-                      publishedAt={publishedAt}
-                    />
-                  );
-                }
-              )}
-            </div>
-          </Container>
-        </Section>
+        {moreNews.length > 0 && (
+          <Section bgColor="bg-gradient-to-t from-kombu-200 to-kombu-500 grow">
+            <Container>
+              <Heading type="h3" color="white" weight="font-semibold">
+                Meer nieuws
+              </Heading>
+              <hr className="my-2 w-24 md:w-48 h-1 bg-gray-100 rounded border-0 dark:bg-gray-100"></hr>
+              <div className="grid grid-cols-2 gap-8 mt-6">
+                {/* map news items to news cards */}
+                {moreNews.map(
+                  ({
+                    title,
+                    excerpt,
+                    mainImage,
+                    publishedAt,
+                    slug,
+                    authorName,
+                    authorImage,
+                    categories,
+                    _id,
+                  }: newsProps) => {
+                    return (
+                      <NewsCard
+                        key={_id}
+                        title={title}
+                        description={excerpt}
+                        imageUrl={buildUrl(mainImage).url()}
+                        slug={slug.current}
+                        tags={categories}
+                        authorName={authorName}
+                        authorImage={buildUrl(authorImage).url()}
+                        publishedAt={publishedAt}
+                      />
+                    );
+                  }
+                )}
+              </div>
+            </Container>
+          </Section>
+        )}
       </MainLayout>
     </>
   );
@@ -182,8 +184,10 @@ export async function getStaticProps(context: any) {
   });
 
   // construct the images Array for the photo album if it's present
-  const gallery = news.photoGallery?.images.length ? galleryBuilder(news.photoGallery?.images): null;
-  
+  const gallery = news.photoGallery?.images.length
+    ? galleryBuilder(news.photoGallery?.images)
+    : null;
+
   // When slug is not found return a 404
   if (!news) {
     return {
@@ -195,10 +199,10 @@ export async function getStaticProps(context: any) {
     props: {
       newsitem: news,
       moreNews: moreNews,
-      gallery
+      gallery,
     },
     // If webhooks isn't setup then attempt to re-generate in 1 minute intervals
-    revalidate: 20,
+    revalidate: process.env.SANITY_REVALIDATE_SECRET ? undefined : 20,
   };
 }
 

@@ -57,7 +57,7 @@ const News: NextPage = (props: any) => {
             </Paragraph>
             {/* NEWS ITEMS */}
             <hr className="my-8 h-px bg-gray-300 border-0"></hr>
-            <div className="grid grid-cols-2 gap-8 mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
             {/* map news items to news cards */}
             {news.map(({ title, excerpt, mainImage, publishedAt, slug, authorName, authorImage, categories, _id }: newsProps) => {
               return (

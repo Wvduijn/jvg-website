@@ -145,7 +145,7 @@ export async function getStaticProps(context: any) {
       moreActivities: moreActivities,
     },
     // If webhooks isn't setup then attempt to re-generate in 1 minute intervals
-    revalidate: process.env.SANITY_REVALIDATE_SECRET ? undefined : 60,
+    revalidate: process.env.SANITY_REVALIDATE_SECRET ? undefined : 20,
   };
 }
 
