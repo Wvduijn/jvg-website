@@ -80,9 +80,9 @@ const NewsDetailPage = ({ newsitem, moreNews, gallery }: any) => {
                             style={{
                               objectFit: 'cover',
                               objectPosition: 'center',
-                              minHeight: '200px',
+                              minHeight: '100px',
                               width: '100%',
-                              height: '200px',
+                              height: '100px',
                             }}
                             className="rounded-xl"
                             data-lightboxjs="lightbox1"

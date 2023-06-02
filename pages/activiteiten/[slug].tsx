@@ -1,5 +1,7 @@
 // Nextjs imports
 import { PortableText } from '@portabletext/react';
+import { useEffect } from 'react';
+import Image from 'next/image';
 
 // layout which handles animation
 import MainLayout from '@components/layouts/main_layout';
@@ -17,6 +19,7 @@ import { activityProps } from '@lib/types/activityProps';
 
 // Helpers
 import buildUrl from '@services/sanity-urlbuilder';
+import { galleryBuilder } from '@services/gallery-builder';
 import { newsPortableTextComponents } from '@services/newsPtComponents';
 import { activityQuery, activitiesSlugsQuery } from '@lib/activityQueries';
 import { transformDate } from '@services/date';
@@ -25,9 +28,17 @@ import { transformDate } from '@services/date';
 import client from '@lib/sanity';
 import Paragraph from 'components/ui/content/Paragraph';
 
+// Gallery
+import 'lightbox.js-react/dist/index.css';
+import { SlideshowLightbox, initLightboxJS } from 'lightbox.js-react';
+
 const myPortableTextComponents = newsPortableTextComponents;
 
-const ActivityDetailPage = ({ activityItem, moreActivities }: any) => {
+const ActivityDetailPage = ({ activityItem, moreActivities, gallery }: any) => {
+  console.log('GALLERY', gallery);
+  useEffect(() => {
+    initLightboxJS(`${process.env.NEXT_PUBLIC_LIGHTBOX_LICENSE}`, 'individual');
+  }, []);
   return (
     <>
       <PageHeader
@@ -43,6 +54,45 @@ const ActivityDetailPage = ({ activityItem, moreActivities }: any) => {
                   value={activityItem.description}
                   components={myPortableTextComponents}
                 />
+                {gallery !== null && (
+                  <div className="mt-2">
+                    <Heading type="h6" weight="font-semibold" color="purple">
+                      Foto galerij
+                    </Heading>
+                    <SlideshowLightbox
+                      className="container grid grid-cols-4 gap-2 mx-auto"
+                      lightboxIdentifier="lightbox1"
+                      framework="next"
+                      images={gallery}
+                      theme="lightbox"
+                    >
+                      {gallery.map((image: any, index: number) => {
+                        return (
+                          <Image
+                            key={index}
+                            src={image.src}
+                            alt={``}
+                            priority={true}
+                            placeholder="blur"
+                            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8/B8AAssB5CY77SMAAAAASUVORK5CYII="
+                            width={200}
+                            height={100}
+                            style={{
+                              objectFit: 'cover',
+                              objectPosition: 'center',
+                              minHeight: '100px',
+                              width: '100%',
+                              height: '100px',
+                            }}
+                            className="rounded-xl"
+                            data-lightboxjs="lightbox1"
+                          />
+                        );
+                      })}
+                    </SlideshowLightbox>
+                    {/* <Gallery photos={galleryImages} /> */}
+                  </div>
+                )}
               </div>
               <aside>
                 <div className="bg-slate-50 rounded-xl p-5 grid grid-flow-row gap-0">
@@ -132,6 +182,11 @@ export async function getStaticProps(context: any) {
     { slug }
   );
 
+   // construct the images Array for the photo album if it's present
+   const gallery = activity.photoGallery?.images.length
+   ? galleryBuilder(activity.photoGallery?.images)
+   : null;
+
   // When slug is not found return a 404
   if (!activity) {
     return {
@@ -143,6 +198,7 @@ export async function getStaticProps(context: any) {
     props: {
       activityItem: activity,
       moreActivities: moreActivities,
+      gallery
     },
     // If webhooks isn't setup then attempt to re-generate in 1 minute intervals
     revalidate: process.env.SANITY_REVALIDATE_SECRET ? undefined : 20,

@@ -58,6 +58,11 @@ export default {
       },
     },
     {
+      name: 'photoGallery',
+      title: 'Foto Gallerij',
+      type: 'gallery'
+    },
+    {
       name: 'activityDate',
       type: 'date',
       title: 'Activiteit Datum',
