@@ -10,6 +10,7 @@ import news_post from './news_post';
 import news_category from './news_category';
 import author from './author';
 import site_settings from './site_settings';
+import gallery from './gallery';
 
 import blockContent from './blockContent';
 
@@ -24,5 +25,6 @@ export default createSchema({
     author,
     site_settings,
     blockContent,
+    gallery
   ]),
 });

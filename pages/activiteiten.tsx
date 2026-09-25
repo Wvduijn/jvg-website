@@ -127,6 +127,7 @@ export async function getStaticProps() {
     props: {
       activities,
     },
+    revalidate: 20,
   };
 }
 

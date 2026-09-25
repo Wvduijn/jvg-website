@@ -1,6 +1,7 @@
 // Nextjs imports
 import { PortableText } from '@portabletext/react';
-import { Head } from 'next/document';
+import { useEffect } from 'react';
+import Image from 'next/image';
 
 // layout which handles animation
 import MainLayout from '@components/layouts/main_layout';
@@ -19,21 +20,31 @@ import { newsProps } from '@lib/types/newsProps';
 // Helpers
 import buildUrl from '@services/sanity-urlbuilder';
 import { newsPortableTextComponents } from '@services/newsPtComponents';
+import { galleryBuilder } from '@services/gallery-builder';
 import { postQuery, postSlugsQuery } from '@lib/newsQueries';
 
 // Sanity Client
 import client from '@lib/sanity';
 
+// Gallery
+import 'lightbox.js-react/dist/index.css';
+import { SlideshowLightbox, initLightboxJS } from 'lightbox.js-react';
+
 // Portable Text Component config
 const myPortableTextComponents = newsPortableTextComponents;
 
-const NewsDetailPage = ({ newsitem, moreNews }: any) => {
+const NewsDetailPage = ({ newsitem, moreNews, gallery }: any) => {
+  useEffect(() => {
+    initLightboxJS(`${process.env.NEXT_PUBLIC_LIGHTBOX_LICENSE}`, 'individual');
+  }, []);
+
   return (
     <>
       <PageHeader
         pageName={newsitem.title}
         featuredImage={buildUrl(newsitem.mainImage).url()}
       />
+      
       <MainLayout>
         <Section bgColor="bg-white">
           <Container>
@@ -43,56 +54,97 @@ const NewsDetailPage = ({ newsitem, moreNews }: any) => {
                   value={newsitem.body}
                   components={myPortableTextComponents}
                 />
+                {gallery !== null && (
+                  <div className="mt-2">
+                    <Heading type="h6" weight="font-semibold" color="purple">
+                      Foto galerij
+                    </Heading>
+                    <SlideshowLightbox
+                      className="container grid grid-cols-3 gap-2 mx-auto"
+                      lightboxIdentifier="lightbox1"
+                      framework="next"
+                      images={gallery}
+                      theme="lightbox"
+                    >
+                      {gallery.map((image: any, index: number) => {
+                        return (
+                          <Image
+                            key={index}
+                            src={image.src}
+                            alt={``}
+                            priority={true}
+                            placeholder="blur"
+                            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8/B8AAssB5CY77SMAAAAASUVORK5CYII="
+                            width={200}
+                            height={100}
+                            style={{
+                              objectFit: 'cover',
+                              objectPosition: 'center',
+                              minHeight: '100px',
+                              width: '100%',
+                              height: '100px',
+                            }}
+                            className="rounded-xl"
+                            data-lightboxjs="lightbox1"
+                          />
+                        );
+                      })}
+                    </SlideshowLightbox>
+                    {/* <Gallery photos={galleryImages} /> */}
+                  </div>
+                )}
               </div>
               <aside>
                 <div className="bg-slate-50 rounded-xl p-5 grid grid-flow-row gap-0">
                   <Heading type="h6" weight="font-semibold" color="purple">
                     Informatie
                   </Heading>
-                  <ContactInfo info ="Heeft u naar aanleiding van dit nieuws artikel vragen? Neem dan gerust contact met ons op." />
+                  <ContactInfo info="Heeft u naar aanleiding van dit nieuws artikel vragen? Neem dan gerust contact met ons op." />
                 </div>
               </aside>
             </div>
           </Container>
         </Section>
-        <Section bgColor="bg-gradient-to-t from-kombu-200 to-kombu-500 grow">
-          <Container>
-            <Heading type="h3" color="white" weight="font-semibold">
-              Meer nieuws
-            </Heading>
-            <hr className="my-2 w-24 md:w-48 h-1 bg-gray-100 rounded border-0 dark:bg-gray-100"></hr>
-            <div className="grid grid-cols-2 gap-8 mt-6">
-              {/* map news items to news cards */}
-              {moreNews.map(
-                ({
-                  title,
-                  excerpt,
-                  mainImage,
-                  publishedAt,
-                  slug,
-                  authorName,
-                  authorImage,
-                  categories,
-                  _id,
-                }: newsProps) => {
-                  return (
-                    <NewsCard
-                      key={_id}
-                      title={title}
-                      description={excerpt}
-                      imageUrl={buildUrl(mainImage).url()}
-                      slug={slug.current}
-                      tags={categories}
-                      authorName={authorName}
-                      authorImage={buildUrl(authorImage).url()}
-                      publishedAt={publishedAt}
-                    />
-                  );
-                }
-              )}
-            </div>
-          </Container>
-        </Section>
+        {moreNews.length > 0 && (
+          <Section bgColor="bg-gradient-to-t from-kombu-200 to-kombu-500 grow">
+            <Container>
+              <Heading type="h3" color="white" weight="font-semibold">
+                Meer nieuws
+              </Heading>
+              <hr className="my-2 w-24 md:w-48 h-1 bg-gray-100 rounded border-0 dark:bg-gray-100"></hr>
+              <div className="grid grid-cols-2 gap-8 mt-6">
+                {/* map news items to news cards */}
+                {moreNews.map(
+                  ({
+                    title,
+                    excerpt,
+                    mainImage,
+                    publishedAt,
+                    slug,
+                    authorName,
+                    authorImage,
+                    categories,
+                    _id,
+                  }: newsProps) => {
+                    return (
+                      <NewsCard
+                        key={_id}
+                        title={title}
+                        description={excerpt}
+                        imageUrl={buildUrl(mainImage).url()}
+                        slug={slug.current}
+                        tags={categories}
+                        authorName={authorName}
+                        authorImage={buildUrl(authorImage).url()}
+                        publishedAt={publishedAt}
+                      />
+                    );
+                  }
+                )}
+              </div>
+            </Container>
+          </Section>
+        )}
       </MainLayout>
     </>
   );
@@ -131,6 +183,11 @@ export async function getStaticProps(context: any) {
     slug,
   });
 
+  // construct the images Array for the photo album if it's present
+  const gallery = news.photoGallery?.images.length
+    ? galleryBuilder(news.photoGallery?.images)
+    : null;
+
   // When slug is not found return a 404
   if (!news) {
     return {
@@ -142,9 +199,10 @@ export async function getStaticProps(context: any) {
     props: {
       newsitem: news,
       moreNews: moreNews,
+      gallery,
     },
     // If webhooks isn't setup then attempt to re-generate in 1 minute intervals
-    revalidate: process.env.SANITY_REVALIDATE_SECRET ? undefined : 60,
+    revalidate: process.env.SANITY_REVALIDATE_SECRET ? undefined : 20,
   };
 }
 
