@@ -1,6 +1,4 @@
-// ./deskStructure.js
-
-export const myStructure = (S) =>
+export const structure = (S) =>
   S.list()
     .title('Base')
     .items([

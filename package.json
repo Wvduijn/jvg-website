@@ -3,13 +3,16 @@
   "description": "Website of 'De Jeugd van Gisteren (JVG)'",
   "author": "Willem van Duijn, https://willemvanduijn.dev",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "echo 'Building Sanity to public/studio' && cd studio && yarn && npx @sanity/cli build ../public/studio -y && echo 'Done'",
+    "prebuild": "echo 'Building Sanity to public/studio' && cd studio && yarn install --frozen-lockfile && yarn sanity build ../public/studio -y && echo 'Done'",
     "build": "next build",
     "postbuild": "echo 'Generating sitemap' && next-sitemap",
     "start": "next start",
-    "sanity": "cd studio && sanity start",
+    "sanity": "cd studio && yarn dev",
     "lint": "next lint"
   },
   "dependencies": {

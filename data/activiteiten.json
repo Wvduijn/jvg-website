@@ -99,6 +99,11 @@
     },
     {
       "day": "zondag",
-      "options": []
+      "options": [
+        {
+          "time": "9:00 - 17:00",
+          "activity": "geen activiteiten / gesloten"
+        }
+      ]
     }
   ]
