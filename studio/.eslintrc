@@ -1,8 +1,0 @@
-{
-  "extends": "@sanity/eslint-config-studio",
-  "eslintConfig": {
-    "rules": {
-      "import/no-unresolved": [2, { "ignore": ["^(all|part):"] }]
-    }
-  }
-}

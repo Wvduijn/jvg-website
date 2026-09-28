@@ -60,9 +60,7 @@ import { MdImage} from 'react-icons/md';
               title: 'Inline Image',
               name: 'inlineImage',
               type: 'image',
-              blockEditor: {
-                icon: MdImage,
-              }
+              icon: MdImage,
             }
           ]
         }

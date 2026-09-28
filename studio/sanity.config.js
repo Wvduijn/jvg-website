@@ -1,21 +1,30 @@
-import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
+import { defineConfig } from 'sanity';
+import { structureTool } from 'sanity/structure';
+import { visionTool } from '@sanity/vision';
+import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash';
 
-import { getTodayDate } from '@services/date';
-// move to services
-const todayDate = getTodayDate();
+import { schemaTypes } from './schemas';
+import { structure } from './structure';
 
-import { myStructure } from './deskStructure';
+// Site Settings is a singleton: it can't be created from the "new document" menu or deleted/duplicated
+const singletonTypes = new Set(['siteSettings']);
+const singletonActions = new Set(['publish', 'discardChanges', 'restore']);
 
 export default defineConfig({
   name: 'default',
-  title: 'structure-builder-playground',
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  apiVersion: todayDate, // or today's date for latest
-  plugins: [
-    deskTool({
-      structure: myStructure,
-    }),
-  ],
-})
+  title: 'Jeugd van Gisteren',
+  projectId: 'kzklufkv',
+  dataset: 'production',
+  plugins: [structureTool({ structure }), visionTool(), unsplashImageAsset()],
+  schema: {
+    types: schemaTypes,
+    templates: (templates) =>
+      templates.filter(({ schemaType }) => !singletonTypes.has(schemaType)),
+  },
+  document: {
+    actions: (input, context) =>
+      singletonTypes.has(context.schemaType)
+        ? input.filter(({ action }) => action && singletonActions.has(action))
+        : input,
+  },
+});
